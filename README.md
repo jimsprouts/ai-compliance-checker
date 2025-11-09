@@ -8,7 +8,8 @@ A microservices-based compliance checking system that helps organizations track 
 - **AI-Powered Document Analysis**: Upload compliance evidence and get instant AI analysis with confidence scores
 - **Smart Status Logic**: Status determined by **best evidence**, not latest upload - once you upload strong evidence (>70% confidence), status won't degrade
 - **Gap Detection**: Automatically identifies weak evidence (<30% confidence) and missing elements
-- **Gap Analysis**: Automatically identify compliance gaps and get recommendations
+- **Dynamic AI Recommendations**: Get specific, actionable AI-generated recommendations that change based on what's missing
+- **Critical Gaps Identification**: AI-powered detection of high-priority security gaps (Access Control, Data Protection, Risk Management)
 - **Progress Tracking**: Real-time compliance progress visualization
 - **Interactive Dashboard**: Modern React-based UI for managing compliance workflows
 
@@ -28,8 +29,9 @@ A microservices-based compliance checking system that helps organizations track 
 
 3. **Report Generator** (Java/Spring Boot - Port 5001)
    - Generates compliance reports
-   - Performs gap analysis
-   - Provides improvement suggestions
+   - Performs AI-powered gap analysis
+   - Provides dynamic, context-aware improvement suggestions
+   - Identifies critical security gaps using AI
 
 4. **Frontend** (React + TypeScript - Port 3000)
    - User interface for all operations
@@ -127,8 +129,8 @@ When you open the dashboard, you'll see:
 
 The Gap Analysis section shows:
 - Total number of gaps
-- Critical gaps requiring immediate attention
-- Recommendations for improvement
+- **Critical gaps** requiring immediate attention (AI-identified high-priority security items)
+- **Dynamic AI recommendations** - specific, actionable suggestions that change based on what evidence you've uploaded
 
 ### 4. Track Progress
 
@@ -393,35 +395,7 @@ curl http://localhost:5001/api/report/compliance/iso-27001-simplified
 5. **Check Progress Update**: Verify percentage increased
 6. **View Gap Report**: Check recommendations section
 
-## Production Considerations
+## Additional Documentation
 
-This is a POC/MVP. For production use, consider:
-
-- [ ] Add authentication and authorization
-- [ ] Implement database persistence (PostgreSQL, MongoDB)
-- [ ] Add comprehensive error handling
-- [ ] Implement rate limiting for AI calls
-- [ ] Add logging and monitoring (ELK stack, Prometheus)
-- [ ] Set up CI/CD pipeline
-- [ ] Add unit and integration tests
-- [ ] Implement PDF parsing for uploaded documents
-- [ ] Add user management
-- [ ] Enable HTTPS/TLS
-- [ ] Configure production-grade CORS
-- [ ] Implement caching (Redis)
-- [ ] Add audit logging
-
-## License
-
-This project is created as a homework assignment for Fluenta.
-
-## Support
-
-For questions or issues:
-- Check the [ARCHITECTURE.md](./ARCHITECTURE.md) for design details
-- Review [AI_USAGE.md](./AI_USAGE.md) for AI integration details
-- Check logs: `docker-compose logs -f [service-name]`
-
----
-
-**Note**: This is a proof of concept demonstrating microservices architecture and AI integration. Not intended for production use without additional security and operational hardening.
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - System design and architecture decisions
+- [AI_USAGE.md](./AI_USAGE.md) - AI tools usage, prompts, and limitations

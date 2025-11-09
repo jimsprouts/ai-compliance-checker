@@ -1,6 +1,7 @@
 package com.fluenta.report.service;
 
 import com.fluenta.report.client.ChecklistServiceClient;
+import com.fluenta.report.client.EvidenceAnalyzerClient;
 import com.fluenta.report.model.*;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.stream.Collectors;
 @Service
 public class ReportService {
     private final ChecklistServiceClient checklistClient;
+    private final EvidenceAnalyzerClient evidenceAnalyzerClient;
 
-    public ReportService(ChecklistServiceClient checklistClient) {
+    public ReportService(ChecklistServiceClient checklistClient, EvidenceAnalyzerClient evidenceAnalyzerClient) {
         this.checklistClient = checklistClient;
+        this.evidenceAnalyzerClient = evidenceAnalyzerClient;
     }
 
     public ComplianceReport generateComplianceReport(String checklistId) {
@@ -102,19 +105,74 @@ public class ReportService {
                         .build())
                 .collect(Collectors.toList());
 
-        // Identify critical gaps (pending items in critical categories)
-        List<String> criticalGaps = gaps.stream()
-                .filter(gap -> "PENDING".equals(gap.getStatus()))
-                .filter(gap -> Arrays.asList("Access Control", "Data Protection").contains(gap.getCategory()))
-                .map(gap -> gap.getRequirementId() + ": " + gap.getRequirement())
-                .collect(Collectors.toList());
-
-        // Generate basic recommendations
+        // Get AI-powered recommendations and critical gaps from Evidence Analyzer
+        List<String> criticalGaps = new ArrayList<>();
         List<String> recommendations = new ArrayList<>();
         if (!gaps.isEmpty()) {
-            recommendations.add("Upload evidence documents for pending requirements");
-            recommendations.add("Review and complete partially covered requirements");
-            recommendations.add("Focus on critical gaps in Access Control and Data Protection first");
+            try {
+                // Build request for Evidence Analyzer
+                List<GapAnalysisRequest.RequirementItem> requirementItems = checklist.getItems().stream()
+                        .map(item -> GapAnalysisRequest.RequirementItem.builder()
+                                .id(item.getId())
+                                .requirement(item.getRequirement())
+                                .status(item.getStatus())
+                                .build())
+                        .collect(Collectors.toList());
+
+                List<GapAnalysisRequest.EvidenceItem> evidenceItems = checklist.getItems().stream()
+                        .filter(item -> !item.getEvidence().isEmpty())
+                        .flatMap(item -> item.getEvidence().stream()
+                                .map(evidence -> GapAnalysisRequest.EvidenceItem.builder()
+                                        .documentName(evidence.getDocumentName())
+                                        .requirement(item.getRequirement())
+                                        .build()))
+                        .collect(Collectors.toList());
+
+                GapAnalysisRequest gapRequest = GapAnalysisRequest.builder()
+                        .requirements(requirementItems)
+                        .evidenceList(evidenceItems)
+                        .build();
+
+                // Call Evidence Analyzer for AI suggestions and critical gaps
+                GapAnalysisResponse aiResponse = evidenceAnalyzerClient.analyzeGaps(gapRequest);
+
+                if (aiResponse != null) {
+                    // Use AI-provided suggestions
+                    if (aiResponse.getSuggestions() != null && !aiResponse.getSuggestions().isEmpty()) {
+                        recommendations = aiResponse.getSuggestions();
+                    } else {
+                        // Fallback to generic recommendations
+                        recommendations.add("Upload evidence documents for pending requirements");
+                        recommendations.add("Review and complete partially covered requirements");
+                    }
+
+                    // Use AI-provided critical gaps, supplemented with critical categories
+                    if (aiResponse.getCriticalGaps() != null && !aiResponse.getCriticalGaps().isEmpty()) {
+                        criticalGaps = new ArrayList<>(aiResponse.getCriticalGaps());
+                    }
+
+                    // Ensure all critical categories are represented (AI sometimes misses some)
+                    List<String> criticalCategories = Arrays.asList("Access Control", "Data Protection", "Risk Management");
+                    for (GapReport.Gap gap : gaps) {
+                        if ("PENDING".equals(gap.getStatus()) &&
+                                criticalCategories.contains(gap.getCategory())) {
+                            String gapString = gap.getRequirementId() + ": " + gap.getRequirement();
+                            if (!criticalGaps.contains(gapString)) {
+                                criticalGaps.add(gapString);
+                            }
+                        }
+                    }
+                } else {
+                    // Fallback to generic recommendations
+                    recommendations.add("Upload evidence documents for pending requirements");
+                    recommendations.add("Review and complete partially covered requirements");
+                }
+            } catch (Exception e) {
+                System.err.println("Failed to get AI recommendations: " + e.getMessage());
+                // Fallback to generic recommendations
+                recommendations.add("Upload evidence documents for pending requirements");
+                recommendations.add("Review and complete partially covered requirements");
+            }
         }
 
         return GapReport.builder()

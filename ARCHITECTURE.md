@@ -55,19 +55,21 @@ A microservices-based AI-powered compliance checking system that helps organizat
 **Responsibilities:**
 - Analyze uploaded documents using AI
 - Match documents to compliance requirements
-- Identify coverage gaps
-- Provide confidence scores
+- Perform AI-powered gap analysis
+- Provide confidence scores with reasoning
+- Generate dynamic, context-aware recommendations
+- Identify critical security gaps
 
 **Technology Stack:**
 - TypeScript
 - Node.js + Express
-- OpenAI API (or similar)
+- OpenAI API (GPT-3.5-turbo)
 - Multer for file uploads
+- Custom JSON response cleaning for AI reliability
 
 **Key Endpoints:**
 - `POST /api/analyze/document` - Upload and analyze document
 - `POST /api/analyze/match` - Match document to requirement
-- `GET /api/analyze/gaps` - Identify missing evidence
 
 ### 3. Report Generator (Java Spring Boot)
 **Port:** 5000

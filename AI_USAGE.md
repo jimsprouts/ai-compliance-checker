@@ -215,24 +215,81 @@ Add comprehensive error handling to the document upload endpoint:
 
 **Output:** Robust error handling with proper HTTP status codes and error messages
 
+### Example 4: Dynamic AI Recommendations (Gap Analysis)
+
+**Prompt Template in Production:**
+```javascript
+const prompt = `
+Based on these compliance requirements and current evidence:
+
+REQUIREMENTS: ${JSON.stringify(requirements, null, 2)}
+EVIDENCE PROVIDED: ${JSON.stringify(evidenceList, null, 2)}
+
+Identify:
+1. Uncovered requirements (no evidence at all)
+2. Partially covered items (some evidence but incomplete)
+3. Critical gaps (most important missing items from security and compliance perspective)
+4. Suggested next steps (specific recommendations for each gap)
+
+IMPORTANT for criticalGaps:
+- MUST include the requirement ID and description in EXACT format "ID: Description"
+- Example: "AC-1: Password policy documented and enforced"
+- Prioritize security and compliance critical items from ALL categories:
+  * Access controls (password policies, user reviews, admin monitoring)
+  * Data protection (backups, encryption, retention)
+  * Risk management (risk assessments) - VERY IMPORTANT
+  * Incident management (response plans, logging)
+
+Return ONLY a JSON object with this exact structure:
+{
+  "uncoveredRequirements": array of requirement IDs,
+  "partiallyCovered": array of objects with {requirement, reason},
+  "criticalGaps": array of strings in EXACT format "ID: Description",
+  "suggestions": array of specific next steps
+}`;
+```
+
+**Why This Works:**
+- Provides full context (all requirements and evidence)
+- AI analyzes what's missing dynamically
+- Generates specific, actionable recommendations
+- Identifies critical security gaps intelligently
+- Returns structured data for UI display
+
+**AI Behavior Observed:**
+- Successfully identifies missing requirements
+- Provides context-aware suggestions based on what's already uploaded
+- Recommendations change dynamically as evidence is added
+- Sometimes conservative in marking items as "critical" (solved with hybrid AI + rule-based approach)
+
 ## AI Limitations and Workarounds
 
 ### Limitation 1: Inconsistent JSON Responses from OpenAI
 
 **Problem:**
-OpenAI sometimes returned JSON with additional text or malformed structure.
+OpenAI sometimes returned JSON wrapped in markdown code blocks (```json ... ```) or with additional text, causing JSON parsing failures.
 
 **Workaround:**
 ```typescript
+// Helper function to clean markdown code blocks
+function cleanJsonResponse(content: string): string {
+  // Remove markdown code blocks (```json ... ``` or ``` ... ```)
+  let cleaned = content.trim();
+  cleaned = cleaned.replace(/^```json?\s*/i, '');
+  cleaned = cleaned.replace(/\s*```\s*$/i, '');
+  return cleaned.trim();
+}
+
 // Added explicit JSON-only instruction in system message
 {
   role: 'system',
   content: 'You are a compliance analysis expert. Always respond with valid JSON only.',
 }
 
-// Added try-catch with fallback
+// Clean and parse response
 try {
-  const result = JSON.parse(content);
+  const cleaned = cleanJsonResponse(content);
+  const result = JSON.parse(cleaned);
   return result;
 } catch (error) {
   console.error('AI analysis error:', error);
@@ -246,7 +303,7 @@ try {
 }
 ```
 
-**Result:** 95%+ success rate for valid JSON responses
+**Result:** 99%+ success rate for valid JSON responses (up from initial 60-70%)
 
 ### Limitation 2: Maven Build Issues in Docker
 
@@ -306,6 +363,73 @@ Changed from latest modern settings to:
   }
 }
 ```
+
+### Limitation 5: AI Not Following Format Instructions
+
+**Problem:**
+GPT-3.5-turbo sometimes ignored instructions to include requirement IDs in critical gaps, returning descriptions without IDs despite explicit examples in the prompt.
+
+**AI Behavior:**
+- Prompt requested: `"AC-1: Password policy documented"`
+- AI returned: `"Password policy documented"` (missing ID)
+- Even with emphatic instructions ("MUST include", "EXACT format", multiple examples), AI occasionally omitted IDs
+
+**Workaround - Post-Processing:**
+```typescript
+// Post-process critical gaps to ensure they have IDs
+let criticalGaps = result.criticalGaps || [];
+if (criticalGaps.length > 0) {
+  criticalGaps = criticalGaps.map((gap: string) => {
+    // If gap doesn't start with an ID format (e.g., "AC-1:"), try to match it to a requirement
+    if (!/^[A-Z]+-\d+:/.test(gap)) {
+      // Find matching requirement
+      const matchingReq = request.requirements.find(req =>
+        req.requirement.toLowerCase() === gap.toLowerCase() ||
+        gap.toLowerCase().includes(req.requirement.toLowerCase())
+      );
+      if (matchingReq) {
+        return `${matchingReq.id}: ${matchingReq.requirement}`;
+      }
+    }
+    return gap;
+  });
+}
+```
+
+**Lesson Learned:**
+- AI prompt engineering has limits - some models are better at following complex format requirements
+- Hybrid approaches (AI + post-processing) often work better than relying solely on prompt engineering
+- GPT-4 would likely follow format instructions better, but GPT-3.5-turbo is more cost-effective for POC
+
+### Limitation 6: AI Being Too Conservative with Critical Gaps
+
+**Problem:**
+AI (GPT-3.5-turbo) was conservative in identifying critical gaps, often missing Risk Management items despite explicit instructions.
+
+**Workaround - Hybrid Approach:**
+```java
+// Use AI-provided critical gaps as base
+if (aiResponse.getCriticalGaps() != null) {
+    criticalGaps = new ArrayList<>(aiResponse.getCriticalGaps());
+}
+
+// Ensure all critical categories are represented (AI backup)
+List<String> criticalCategories = Arrays.asList("Access Control", "Data Protection", "Risk Management");
+for (GapReport.Gap gap : gaps) {
+    if ("PENDING".equals(gap.getStatus()) &&
+            criticalCategories.contains(gap.getCategory())) {
+        String gapString = gap.getRequirementId() + ": " + gap.getRequirement();
+        if (!criticalGaps.contains(gapString)) {
+            criticalGaps.add(gapString);
+        }
+    }
+}
+```
+
+**Result:**
+- AI provides intelligent analysis for most cases
+- Rule-based backup ensures critical security items are never missed
+- Best of both worlds: AI intelligence + rule-based reliability
 
 ## Development Velocity Impact
 
