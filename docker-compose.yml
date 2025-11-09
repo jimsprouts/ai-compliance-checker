@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  checklist-service:
+    build: ./checklist-service
+    container_name: checklist-service
+    ports:
+      - "8080:8080"
+    networks:
+      - compliance-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/checklists"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  evidence-analyzer:
+    build: ./evidence-analyzer
+    container_name: evidence-analyzer
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-3.5-turbo}
+    networks:
+      - compliance-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  report-generator:
+    build: ./report-generator
+    container_name: report-generator
+    ports:
+      - "5001:5000"
+    environment:
+      - CHECKLIST_SERVICE_URL=http://checklist-service:8080
+    networks:
+      - compliance-network
+    depends_on:
+      - checklist-service
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/api/report/compliance/iso-27001-simplified"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    networks:
+      - compliance-network
+    depends_on:
+      - checklist-service
+      - evidence-analyzer
+      - report-generator
+
+networks:
+  compliance-network:
+    driver: bridge

@@ -1,0 +1,520 @@
+ACME Corporation - Encryption Standards and Implementation Guide
+Document Version: 3.0
+Effective Date: January 2025
+Document Owner: Chief Information Security Officer
+
+═══════════════════════════════════════════════════════════════════════════════
+EXECUTIVE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+This document establishes mandatory encryption standards for protecting ACME
+Corporation's data at rest, in transit, and in use. All systems, applications,
+and data storage must comply with these standards to ensure confidentiality,
+integrity, and regulatory compliance.
+
+Scope: All ACME systems, devices, applications, and data
+Compliance: Mandatory for all IT personnel and system owners
+Review Frequency: Annually or when cryptographic standards change
+
+═══════════════════════════════════════════════════════════════════════════════
+1. ENCRYPTION POLICY OVERVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+1.1 Purpose
+─────────────────────────────────────────────────────────────────────────────
+Establish cryptographic standards that:
+- Protect sensitive data from unauthorized access
+- Ensure data confidentiality and integrity
+- Meet regulatory and compliance requirements
+- Align with industry best practices
+- Enable secure communication and data exchange
+
+1.2 Applicability
+─────────────────────────────────────────────────────────────────────────────
+This standard applies to encryption of:
+✓ Data at rest (stored data)
+✓ Data in transit (network communications)
+✓ Data in use (processing/memory)
+✓ Backup and archive data
+✓ Mobile and portable devices
+✓ Cloud storage and services
+✓ Database systems
+✓ Email communications
+✓ File systems and removable media
+
+═══════════════════════════════════════════════════════════════════════════════
+2. APPROVED CRYPTOGRAPHIC ALGORITHMS
+═══════════════════════════════════════════════════════════════════════════════
+
+2.1 Symmetric Encryption Algorithms
+─────────────────────────────────────────────────────────────────────────────
+APPROVED (Must Use):
+✓ AES-256 (Advanced Encryption Standard, 256-bit key) - PREFERRED
+✓ AES-192 (Advanced Encryption Standard, 192-bit key) - Acceptable
+✓ AES-128 (Advanced Encryption Standard, 128-bit key) - Minimum acceptable
+
+DEPRECATED (Phase out by June 2025):
+⚠ 3DES (Triple Data Encryption Standard) - Legacy systems only
+⚠ Blowfish - Legacy systems only
+
+PROHIBITED (Must Not Use):
+❌ DES (Data Encryption Standard)
+❌ RC4
+❌ Any proprietary or custom algorithms
+❌ Algorithms with known vulnerabilities
+
+2.2 Asymmetric Encryption Algorithms
+─────────────────────────────────────────────────────────────────────────────
+APPROVED (Must Use):
+✓ RSA-4096 (4096-bit key) - PREFERRED for new implementations
+✓ RSA-3072 (3072-bit key) - Acceptable
+✓ RSA-2048 (2048-bit key) - Minimum acceptable, must migrate by 2026
+✓ Elliptic Curve Cryptography (ECC):
+  - P-384 (NIST Curve) - PREFERRED
+  - P-256 (NIST Curve) - Acceptable
+  - Curve25519 - Acceptable for specific use cases
+
+DEPRECATED (Phase out by December 2025):
+⚠ RSA-1024 - Must upgrade immediately
+
+PROHIBITED (Must Not Use):
+❌ RSA key sizes below 2048 bits
+❌ MD5-based signatures
+❌ SHA-1 for new certificates (acceptable for legacy verification only)
+
+2.3 Hashing Algorithms
+─────────────────────────────────────────────────────────────────────────────
+APPROVED (Must Use):
+✓ SHA-256 (Secure Hash Algorithm 256-bit) - PREFERRED
+✓ SHA-384 (Secure Hash Algorithm 384-bit) - Acceptable
+✓ SHA-512 (Secure Hash Algorithm 512-bit) - Acceptable for high security
+✓ SHA-3 family - Acceptable for new implementations
+✓ bcrypt (for password hashing) - PREFERRED with cost factor ≥ 12
+✓ scrypt (for password hashing) - Acceptable
+✓ Argon2 (for password hashing) - Acceptable
+
+DEPRECATED (Phase out by June 2025):
+⚠ SHA-1 - Legacy verification only
+
+PROHIBITED (Must Not Use):
+❌ MD5 (Message Digest 5)
+❌ MD4
+❌ Plain text password storage
+❌ Unsalted hashes
+
+2.4 Key Exchange and Agreement
+─────────────────────────────────────────────────────────────────────────────
+APPROVED (Must Use):
+✓ Diffie-Hellman (DH) with 2048-bit minimum
+✓ Elliptic Curve Diffie-Hellman (ECDH) with P-256 minimum
+✓ RSA key exchange with 2048-bit minimum
+
+PROHIBITED (Must Not Use):
+❌ Static key exchange
+❌ Key exchange without perfect forward secrecy (where applicable)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. DATA AT REST ENCRYPTION
+═══════════════════════════════════════════════════════════════════════════════
+
+3.1 Full Disk Encryption (FDE)
+─────────────────────────────────────────────────────────────────────────────
+MANDATORY for all:
+✓ Laptops and desktop computers
+✓ Mobile devices (phones, tablets)
+✓ Removable storage devices (USB drives, external HDDs)
+✓ Backup tapes and media
+✓ Servers containing sensitive data
+
+Approved Solutions:
+- Windows: BitLocker (AES-256, XTS mode)
+- macOS: FileVault 2 (AES-256, XTS mode)
+- Linux: LUKS (AES-256, XTS mode)
+- Mobile: iOS/Android native encryption
+
+Configuration Requirements:
+✓ AES-256 encryption algorithm
+✓ XTS or CBC mode of operation
+✓ TPM (Trusted Platform Module) integration where available
+✓ Secure key storage
+✓ Recovery key backup to enterprise system
+✓ Pre-boot authentication enabled
+
+3.2 Database Encryption
+─────────────────────────────────────────────────────────────────────────────
+Transparent Data Encryption (TDE):
+
+SQL Server:
+- TDE enabled for all databases containing sensitive data
+- AES-256 encryption
+- Master key protected by certificate
+- Regular key rotation (annually minimum)
+
+Oracle:
+- TDE enabled for sensitive columns
+- AES-256 encryption
+- Hardware security module (HSM) for key storage
+- Tablespace encryption for highly sensitive data
+
+MySQL/MariaDB:
+- InnoDB encryption enabled
+- AES-256 encryption
+- Key management via HashiCorp Vault
+
+PostgreSQL:
+- pgcrypto extension for column-level encryption
+- AES-256 encryption
+- Full-disk encryption at OS level
+
+MongoDB:
+- Encryption at rest enabled
+- AES-256 encryption
+- Key management via KMIP-compatible system
+
+3.3 File System and Object Storage
+─────────────────────────────────────────────────────────────────────────────
+File Servers:
+- EFS encryption (Windows Encrypted File System) or equivalent
+- AES-256 encryption
+- Per-file or per-folder encryption
+- Access control integration
+
+Cloud Storage:
+Amazon S3:
+✓ S3-SSE (Server-Side Encryption) with AWS KMS
+✓ AES-256 encryption
+✓ Bucket default encryption enabled
+✓ Versioning with encryption
+
+Azure Blob Storage:
+✓ Azure Storage Service Encryption (SSE)
+✓ AES-256 encryption
+✓ Customer-managed keys in Azure Key Vault
+
+Google Cloud Storage:
+✓ Default encryption enabled
+✓ Customer-managed encryption keys (CMEK)
+✓ AES-256 encryption
+
+3.4 Backup and Archive Encryption
+─────────────────────────────────────────────────────────────────────────────
+All backups must be encrypted:
+
+Backup Media:
+✓ Tape encryption (LTO-8 hardware encryption or software AES-256)
+✓ Disk-based backups (AES-256)
+✓ Cloud backups (provider-managed encryption)
+
+Backup Software Configuration:
+- Veeam: AES-256 encryption enabled, password protected
+- Commvault: AES-256 encryption, key management integration
+- Backup Exec: AES-256 encryption, recovery key stored securely
+
+Archive Systems:
+✓ Long-term archives encrypted with AES-256
+✓ Keys escrowed for long-term retrieval
+✓ Regular key recovery testing
+
+═══════════════════════════════════════════════════════════════════════════════
+4. DATA IN TRANSIT ENCRYPTION
+═══════════════════════════════════════════════════════════════════════════════
+
+4.1 TLS/SSL Configuration
+─────────────────────────────────────────────────────────────────────────────
+MANDATORY TLS Versions:
+✓ TLS 1.3 - PREFERRED for all new implementations
+✓ TLS 1.2 - Acceptable (minimum version)
+
+PROHIBITED:
+❌ TLS 1.1 and earlier versions
+❌ SSL 3.0, SSL 2.0
+❌ Unencrypted HTTP (port 80) for sensitive data
+
+Cipher Suites (Ordered by Preference):
+1. TLS_AES_256_GCM_SHA384 (TLS 1.3)
+2. TLS_CHACHA20_POLY1305_SHA256 (TLS 1.3)
+3. TLS_AES_128_GCM_SHA256 (TLS 1.3)
+4. TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (TLS 1.2)
+5. TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (TLS 1.2)
+
+PROHIBITED Cipher Suites:
+❌ Any cipher suite using RC4
+❌ Any cipher suite using MD5
+❌ Any cipher suite using NULL encryption
+❌ Anonymous Diffie-Hellman (ADH)
+❌ Export-grade ciphers
+
+4.2 Certificate Requirements
+─────────────────────────────────────────────────────────────────────────────
+TLS/SSL Certificates:
+✓ Minimum 2048-bit RSA or 256-bit ECC
+✓ SHA-256 signature algorithm (minimum)
+✓ Issued by trusted Certificate Authority (CA)
+✓ Subject Alternative Names (SAN) properly configured
+✓ Maximum validity period: 1 year
+✓ Certificate Transparency (CT) logging
+
+Internal PKI:
+- Enterprise Certificate Authority operational
+- Automated certificate lifecycle management
+- Certificate revocation lists (CRL) published
+- OCSP (Online Certificate Status Protocol) enabled
+- Regular audits of issued certificates
+
+Certificate Management:
+✓ Automated renewal 30 days before expiration
+✓ Monitoring and alerting for expiring certificates
+✓ Centralized certificate inventory
+✓ Private key protection (never transmitted/shared)
+
+4.3 VPN Encryption
+─────────────────────────────────────────────────────────────────────────────
+IPsec VPN:
+- IKEv2 protocol
+- AES-256 encryption
+- SHA-256 or SHA-384 for integrity
+- Perfect Forward Secrecy (PFS) enabled
+- DH Group 14 or higher
+
+SSL/TLS VPN:
+- TLS 1.2 or 1.3
+- AES-256-GCM cipher
+- Certificate-based authentication
+- MFA (Multi-Factor Authentication) required
+
+WireGuard (where deployed):
+- ChaCha20 encryption
+- Poly1305 authentication
+- Curve25519 key exchange
+
+4.4 Email Encryption
+─────────────────────────────────────────────────────────────────────────────
+Transport Security:
+✓ TLS 1.2 or 1.3 for SMTP connections
+✓ STARTTLS mandatory for all email servers
+✓ Opportunistic encryption for external email
+✓ MTA-STS (Mail Transfer Agent Strict Transport Security) enabled
+
+End-to-End Encryption (for sensitive emails):
+✓ S/MIME with 2048-bit RSA minimum
+✓ PGP/GPG with 2048-bit RSA minimum
+✓ Certificates issued by enterprise CA
+
+Office 365/Exchange Online:
+✓ Microsoft 365 Message Encryption enabled
+✓ Azure Information Protection labels
+✓ DLP policies enforcing encryption
+
+4.5 Wireless Network Encryption
+─────────────────────────────────────────────────────────────────────────────
+Wi-Fi Security:
+✓ WPA3-Enterprise - REQUIRED for all corporate networks
+✓ WPA2-Enterprise (AES) - Acceptable during transition
+✓ 802.1X authentication with RADIUS
+✓ EAP-TLS or PEAP-MSCHAPv2
+
+PROHIBITED:
+❌ WPA2-Personal (pre-shared key)
+❌ WPA1
+❌ WEP (Wired Equivalent Privacy)
+❌ Open/unencrypted networks
+
+═══════════════════════════════════════════════════════════════════════════════
+5. KEY MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+5.1 Key Generation
+─────────────────────────────────────────────────────────────────────────────
+Requirements:
+✓ Use cryptographically secure random number generators (CSRNG)
+✓ Minimum key lengths as specified in Section 2
+✓ Keys generated in secure environment
+✓ Private keys never leave secure storage unencrypted
+
+Approved Tools:
+- OpenSSL (properly configured)
+- Hardware Security Modules (HSMs)
+- Cloud KMS (AWS KMS, Azure Key Vault, Google Cloud KMS)
+- HashiCorp Vault
+
+5.2 Key Storage
+─────────────────────────────────────────────────────────────────────────────
+Encryption Keys:
+✓ Stored in Hardware Security Module (HSM) - PREFERRED
+✓ Stored in enterprise Key Management System (KMS)
+✓ Never stored in application code or configuration files
+✓ Access controlled via IAM policies
+✓ Audit logging enabled for all key access
+
+Key Hierarchy:
+- Master keys (root keys) stored in HSM
+- Data encryption keys (DEKs) encrypted by key encryption keys (KEKs)
+- KEKs encrypted by master keys
+- Envelope encryption pattern for cloud data
+
+5.3 Key Rotation
+─────────────────────────────────────────────────────────────────────────────
+Rotation Schedule:
+
+Encryption Keys:
+- Master keys: Annually
+- Database encryption keys: Annually
+- Application encryption keys: Quarterly
+- API keys: Quarterly
+- Service account keys: Every 90 days
+
+Certificates:
+- TLS certificates: Before expiration (typically annually)
+- Code signing certificates: Every 2 years
+- User certificates: Annually
+
+Automated Rotation:
+✓ Cloud provider managed keys: Enabled
+✓ Database TDE keys: Automated via scheduled jobs
+✓ Application secrets: Via HashiCorp Vault rotation
+
+5.4 Key Escrow and Recovery
+─────────────────────────────────────────────────────────────────────────────
+Recovery Keys:
+✓ BitLocker recovery keys stored in Active Directory
+✓ Database master keys backed up to secure location
+✓ Dual-control access for key recovery
+✓ Regular testing of key recovery procedures
+
+Escrow Requirements:
+- Keys escrowed with trusted third party for long-term archives
+- Legal hold and compliance keys retained as required
+- Escrow agreement reviewed annually
+
+5.5 Key Destruction
+─────────────────────────────────────────────────────────────────────────────
+Cryptographic Erasure:
+✓ Immediate destruction of keys when data is deleted
+✓ Secure deletion methods (overwrite, degaussing, physical destruction)
+✓ HSM key deletion following vendor guidelines
+✓ Logging of all key deletion operations
+
+Timeline:
+- Decommissioned system keys: Destroyed within 30 days
+- Expired certificates: Destroyed after 1 year retention
+- Test/development keys: Destroyed immediately after use
+
+═══════════════════════════════════════════════════════════════════════════════
+6. IMPLEMENTATION REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+6.1 New System Implementation
+─────────────────────────────────────────────────────────────────────────────
+All new systems must:
+□ Use approved encryption algorithms only
+□ Implement encryption by default
+□ Document encryption architecture
+□ Undergo security review before production
+□ Include encryption in testing procedures
+□ Train administrators on encryption management
+
+6.2 Legacy System Compliance
+─────────────────────────────────────────────────────────────────────────────
+Legacy System Upgrade Plan:
+- Systems using deprecated algorithms: Upgrade by June 2025
+- Systems using prohibited algorithms: Immediate upgrade required
+- Exception process available with risk acceptance
+- Compensating controls required for exceptions
+
+6.3 Third-Party and Cloud Services
+─────────────────────────────────────────────────────────────────────────────
+Vendor Requirements:
+✓ Encryption at rest (AES-256 minimum)
+✓ Encryption in transit (TLS 1.2 minimum)
+✓ Customer-managed encryption keys (where available)
+✓ Encryption documented in SLA/contract
+✓ Regular vendor security assessments
+
+═══════════════════════════════════════════════════════════════════════════════
+7. COMPLIANCE AND AUDIT
+═══════════════════════════════════════════════════════════════════════════════
+
+7.1 Compliance Monitoring
+─────────────────────────────────────────────────────────────────────────────
+Automated Checks:
+- TLS/SSL configuration scanning (monthly)
+- Certificate expiration monitoring (continuous)
+- Encryption algorithm auditing (quarterly)
+- Key management system audits (quarterly)
+
+Reporting:
+- Monthly encryption compliance report to CISO
+- Quarterly trend analysis
+- Annual comprehensive audit
+- Exception tracking and review
+
+7.2 Regulatory Alignment
+─────────────────────────────────────────────────────────────────────────────
+Standards Compliance:
+✓ NIST SP 800-175B (Cryptographic Algorithm Guidance)
+✓ FIPS 140-2/140-3 (where required)
+✓ PCI DSS 4.0 (payment card data)
+✓ HIPAA (healthcare data)
+✓ GDPR (personal data protection)
+✓ ISO 27001 (information security)
+
+═══════════════════════════════════════════════════════════════════════════════
+8. ROLES AND RESPONSIBILITIES
+═══════════════════════════════════════════════════════════════════════════════
+
+CISO:
+- Overall policy ownership and approval
+- Exception approval authority
+- Regulatory compliance oversight
+
+IT Security Team:
+- Standard maintenance and updates
+- Compliance monitoring and enforcement
+- Security assessments and audits
+- Key management system administration
+
+System Owners:
+- Implementation of encryption on managed systems
+- Compliance with encryption standards
+- Regular vulnerability assessments
+- Incident reporting
+
+Developers:
+- Secure coding practices
+- Proper use of encryption APIs
+- Key management in applications
+- Security testing
+
+═══════════════════════════════════════════════════════════════════════════════
+9. EXCEPTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Exception Process:
+1. Submit written request with business justification
+2. Include risk assessment
+3. Propose compensating controls
+4. Obtain CISO approval
+5. Document in exception register
+6. Review quarterly
+
+Valid Exception Examples:
+- Legacy systems awaiting replacement (with timeline)
+- Third-party systems with vendor limitations (with mitigations)
+- Performance-critical systems (with alternative controls)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+APPROVAL
+
+Chief Information Security Officer: _________________
+Date: January 1, 2025
+
+Chief Technology Officer: _________________
+Date: January 1, 2025
+
+Next Policy Review: January 1, 2026
+
+For questions about encryption standards:
+IT Security Team: security@acme.com
+Cryptography Questions: crypto@acme.com
+Key Management Support: kms-support@acme.com

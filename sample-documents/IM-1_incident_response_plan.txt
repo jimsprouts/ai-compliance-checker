@@ -1,0 +1,226 @@
+ACME Corporation - Incident Response Plan
+Document Version: 3.0
+Last Updated: January 2025
+Classification: Confidential
+
+EXECUTIVE SUMMARY
+This Incident Response Plan outlines the procedures and protocols for identifying, responding to, and recovering from security incidents at ACME Corporation.
+
+1. INCIDENT RESPONSE TEAM
+
+1.1 Core Team Members
+- Incident Response Manager: John Smith (john.smith@acme.com, +1-555-0100)
+- IT Security Lead: Jane Doe (jane.doe@acme.com, +1-555-0101)
+- Network Administrator: Bob Johnson (bob.johnson@acme.com, +1-555-0102)
+- Legal Counsel: Sarah Williams (sarah.williams@acme.com, +1-555-0103)
+- Communications Director: Mike Chen (mike.chen@acme.com, +1-555-0104)
+
+1.2 Escalation Path
+Level 1: Help Desk / First Responders
+Level 2: IT Security Team
+Level 3: Incident Response Manager
+Level 4: CISO / Executive Management
+
+2. INCIDENT CLASSIFICATION
+
+2.1 Severity Levels
+
+CRITICAL (Priority 1)
+- Complete system outage affecting business operations
+- Confirmed data breach with sensitive information compromised
+- Ransomware or widespread malware infection
+- Active cyber attack in progress
+- Response Time: Immediate (within 15 minutes)
+
+HIGH (Priority 2)
+- Partial system outage affecting key services
+- Suspected unauthorized access to critical systems
+- Significant security control failure
+- Response Time: Within 1 hour
+
+MEDIUM (Priority 3)
+- Limited service degradation
+- Failed intrusion attempts
+- Minor policy violations
+- Response Time: Within 4 hours
+
+LOW (Priority 4)
+- Isolated issues with minimal impact
+- Potential security vulnerabilities identified
+- Response Time: Within 24 hours
+
+3. INCIDENT RESPONSE PHASES
+
+3.1 PREPARATION
+- Maintain updated incident response toolkit
+- Regular team training and tabletop exercises (quarterly)
+- Keep contact lists current
+- Maintain backup and recovery procedures
+- Document all systems and network diagrams
+
+3.2 IDENTIFICATION
+- Monitor security alerts from SIEM, IDS/IPS, and antivirus systems
+- Analyze anomalous behavior or performance issues
+- Review user reports of suspicious activity
+- Document initial findings and assign severity level
+- Activate incident response team if severity warrants
+
+3.3 CONTAINMENT
+Short-term Containment:
+- Isolate affected systems from network
+- Disable compromised user accounts
+- Block malicious IP addresses or domains
+- Preserve evidence for forensic analysis
+
+Long-term Containment:
+- Apply security patches
+- Rebuild compromised systems
+- Implement additional monitoring
+- Review and strengthen access controls
+
+3.4 ERADICATION
+- Remove malware or malicious code
+- Close vulnerability that allowed incident
+- Reset compromised passwords
+- Review and remove unauthorized access
+- Verify complete removal of threat
+
+3.5 RECOVERY
+- Restore systems from clean backups
+- Gradually return systems to production
+- Monitor for signs of re-infection
+- Verify business operations are normal
+- Enhanced monitoring for 30 days post-incident
+
+3.6 LESSONS LEARNED
+- Conduct post-incident review within 7 days
+- Document timeline and actions taken
+- Identify what worked and what didn't
+- Update incident response procedures
+- Implement preventive measures
+- Share findings with stakeholders
+
+4. INCIDENT LOGGING AND DOCUMENTATION
+
+All incidents must be logged with the following information:
+- Date and time of detection
+- Date and time of occurrence (if different)
+- Person who reported the incident
+- Nature and severity of the incident
+- Systems and data affected
+- Actions taken
+- Outcome and resolution
+- Lessons learned
+
+Incident Log Location: SharePoint/Security/Incident_Logs
+Retention Period: 7 years
+
+5. COMMUNICATION PROTOCOLS
+
+5.1 Internal Communication
+- Incident Response Team: Immediate notification via secure channel
+- Executive Management: Within 2 hours for P1/P2 incidents
+- Affected Departments: As needed based on impact
+- All Staff: Via approved communication template when appropriate
+
+5.2 External Communication
+- Customers: Through official channels only, approved by Legal and Communications
+- Law Enforcement: Contact within 24 hours for criminal activity
+- Regulatory Bodies: As required by law (e.g., GDPR 72-hour notification)
+- Media: All inquiries handled by Communications Director only
+- Insurance Provider: Notify within policy requirements
+
+6. SPECIFIC INCIDENT PROCEDURES
+
+6.1 Data Breach Response
+1. Confirm breach and scope
+2. Contain breach immediately
+3. Notify Legal and CISO
+4. Preserve forensic evidence
+5. Begin regulatory notification process
+6. Prepare customer notification
+7. Engage cyber insurance
+8. Monitor for identity theft
+
+6.2 Ransomware Response
+1. Isolate affected systems immediately
+2. Do NOT pay ransom without executive approval
+3. Identify ransomware variant
+4. Check for available decryption tools
+5. Restore from clean backups
+6. Report to law enforcement
+7. Implement enhanced email filtering
+
+6.3 Malware Outbreak
+1. Identify patient zero
+2. Quarantine infected systems
+3. Update antivirus signatures
+4. Scan all systems
+5. Remove malware
+6. Patch vulnerabilities
+7. Monitor for reinfection
+
+7. BUSINESS CONTINUITY
+
+7.1 Critical Systems Priority
+1. Email and communication systems
+2. Customer-facing applications
+3. Financial systems
+4. HR and payroll systems
+5. Development environments
+
+7.2 Recovery Time Objectives (RTO)
+- Critical Systems: 4 hours
+- High Priority Systems: 24 hours
+- Standard Systems: 72 hours
+
+7.3 Recovery Point Objectives (RPO)
+- Critical Data: 1 hour
+- Important Data: 24 hours
+- Standard Data: 7 days
+
+8. TRAINING AND TESTING
+
+8.1 Training Schedule
+- New employee security orientation: Within first week
+- Annual security awareness training: All staff
+- Incident response team training: Quarterly
+- Specialized security training: As needed
+
+8.2 Testing Schedule
+- Tabletop exercises: Quarterly
+- Simulated incidents: Bi-annually
+- Full disaster recovery test: Annually
+- Penetration testing: Annually
+
+9. TOOLS AND RESOURCES
+
+9.1 Available Tools
+- SIEM Platform: Splunk Enterprise
+- Forensic Tools: EnCase, FTK
+- Network Analysis: Wireshark, tcpdump
+- Malware Analysis: Sandbox environment
+- Incident Management: ServiceNow
+
+9.2 External Resources
+- Cyber Insurance Provider: CyberSafe Insurance
+- Forensics Firm: Digital Forensics Inc. (on retainer)
+- Legal Counsel: Anderson & Partners LLP
+- Law Enforcement Contact: FBI Cyber Division
+
+10. POLICY REVIEW AND UPDATES
+
+This Incident Response Plan will be:
+- Reviewed quarterly by the Incident Response Team
+- Updated after each major incident
+- Tested through regular exercises
+- Approved annually by the CISO
+
+APPROVAL
+
+Chief Information Security Officer: _________________
+Date: January 1, 2025
+
+For incident reporting or questions, contact:
+Security Operations Center: soc@acme.com
+24/7 Hotline: +1-555-SECURITY

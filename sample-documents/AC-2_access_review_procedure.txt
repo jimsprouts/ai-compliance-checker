@@ -1,0 +1,377 @@
+ACME Corporation - User Access Review Procedure
+Document Version: 1.5
+Effective Date: January 2025
+Document Owner: IT Security Team
+
+1. PURPOSE AND SCOPE
+
+This procedure establishes the requirements and methodology for conducting periodic user access reviews to ensure that user access rights remain appropriate and aligned with business needs and security requirements.
+
+This procedure applies to:
+- All user accounts (employees, contractors, third-party)
+- All systems and applications
+- All access levels (standard user, privileged, administrative)
+- All data classifications (public, internal, confidential, restricted)
+
+2. REVIEW FREQUENCY
+
+2.1 Standard Review Schedule
+- User accounts: Quarterly (every 90 days)
+- Privileged accounts: Monthly
+- Administrative accounts: Monthly
+- Service accounts: Semi-annually
+- External/third-party access: Quarterly
+
+2.2 Triggered Reviews
+Additional reviews must be conducted when:
+- Employee role change or transfer
+- Employee termination or departure
+- Organizational restructuring
+- System or application changes
+- Security incident involving access abuse
+- Audit findings
+
+3. ROLES AND RESPONSIBILITIES
+
+3.1 IT Security Team
+- Schedule and coordinate access reviews
+- Provide access reports to reviewers
+- Track review completion
+- Escalate overdue reviews
+- Document review outcomes
+- Implement access changes
+
+3.2 Department Managers
+- Review access for their team members
+- Approve or revoke access rights
+- Provide business justification for access
+- Complete reviews within specified timeframe (14 days)
+- Certify access is appropriate
+
+3.3 System Owners
+- Review application-specific access
+- Validate privileged access requirements
+- Approve access changes
+- Maintain application access documentation
+
+3.4 Human Resources
+- Notify IT of employee status changes
+- Provide organizational charts
+- Confirm employee roles and responsibilities
+
+4. ACCESS REVIEW PROCESS
+
+4.1 Quarterly User Access Review
+
+Step 1: Preparation (Day 1-3)
+- IT Security generates access reports from all systems
+- Reports include: username, full name, department, role, access level, last login date
+- Reports sent to department managers
+
+Step 2: Manager Review (Day 4-17)
+Managers must review each user and:
+- Verify user still requires access
+- Confirm access level is appropriate for current role
+- Identify any unnecessary or excessive permissions
+- Mark for approval or revocation
+- Provide comments/justification
+
+Step 3: IT Security Processing (Day 18-21)
+- Collect completed review forms
+- Generate change requests for revocations
+- Implement approved changes
+- Document all access modifications
+
+Step 4: Validation (Day 22-25)
+- Verify all changes implemented correctly
+- Confirm revoked access is removed
+- Update access inventory
+- Generate completion report
+
+Step 5: Reporting (Day 26-30)
+- Summarize review outcomes
+- Report to CISO and management
+- Archive review documentation
+- Schedule next review
+
+4.2 Monthly Privileged Access Review
+
+More stringent review for privileged accounts:
+
+Review Criteria:
+- Is privileged access still required for job function?
+- Has the user used privileged access in last 30 days?
+- Are there any anomalous activities?
+- Is multi-factor authentication enabled?
+- Are privileged sessions logged and monitored?
+
+Actions:
+- Approve continued access
+- Downgrade to standard access
+- Revoke access immediately
+- Request additional monitoring
+
+5. ACCESS REVIEW REPORTS
+
+5.1 Report Contents
+Each access review report must include:
+
+User Information:
+- Employee ID
+- Full name
+- Department/Cost center
+- Job title
+- Manager name
+- Employment status
+
+Access Information:
+- System/application name
+- Account name/username
+- Access level/role
+- Date access granted
+- Last login date
+- Last access date
+- Inactive period (if applicable)
+
+Review Results:
+- Reviewer name
+- Review date
+- Decision (Approve/Revoke/Modify)
+- Justification
+- Comments
+
+5.2 Sample Report Format
+
+| User ID | Name | Dept | System | Access Level | Last Login | Status | Reviewer | Date |
+|---------|------|------|---------|--------------|------------|---------|----------|------|
+| E12345 | John Smith | Finance | SAP | Read/Write | 2025-01-05 | Approved | Jane Doe | 2025-01-08 |
+| E67890 | Mary Johnson | IT | Active Directory | Admin | 2025-01-07 | Approved | Bob Wilson | 2025-01-08 |
+| C11223 | Tom External | Sales | CRM | Read Only | 2024-10-15 | Revoked | Sarah Lee | 2025-01-08 |
+
+6. ACCESS REVOCATION PROCESS
+
+6.1 Immediate Revocation (Same Day)
+Required for:
+- Terminated employees
+- Security incidents
+- Unauthorized access attempts
+- Contractor end date reached
+- Legal/compliance requirements
+
+6.2 Standard Revocation (Within 48 hours)
+For access identified as:
+- No longer needed for job function
+- Excessive permissions
+- Inactive for 90+ days
+- Duplicate accounts
+- Role change
+
+6.3 Revocation Steps
+1. Manager submits revocation request
+2. IT Security validates request
+3. Access disabled in all systems
+4. User notified (if appropriate)
+5. Account marked for deletion after 30 days
+6. All access removed from inventory
+7. Change logged in audit trail
+
+7. INACTIVE ACCOUNT MANAGEMENT
+
+7.1 Inactivity Thresholds
+- Standard users: 90 days no login = flag for review
+- Privileged users: 60 days no login = flag for review
+- Administrative: 30 days no login = flag for review
+
+7.2 Inactive Account Actions
+- Day 90 (standard) / 60 (privileged) / 30 (admin): Flag account
+- Notify manager and user
+- Request justification for continued access
+- If no response in 7 days: Disable account
+- If still inactive after 30 days disabled: Delete account
+
+8. EXCEPTION MANAGEMENT
+
+8.1 Access Exceptions
+Some access may require exceptions to standard review process:
+
+Valid Exceptions:
+- Emergency responder accounts (must be reviewed monthly)
+- Break-glass accounts (reviewed after each use)
+- Shared service accounts (reviewed by multiple managers)
+- Compliance-required access (documented justification)
+- Executive-level access (CISO approval required)
+
+8.2 Exception Documentation
+All exceptions must include:
+- Business justification
+- Risk assessment
+- Compensating controls
+- Approver name and date
+- Expiration date
+- Review frequency
+
+9. REVIEW METRICS AND KPIs
+
+9.1 Key Performance Indicators
+
+Completion Metrics:
+- Review completion rate: Target 100%
+- On-time completion: Target 95%
+- Manager participation: Target 100%
+- Average response time: Target < 10 days
+
+Access Metrics:
+- Accounts reviewed: Track total
+- Accounts revoked: Track percentage
+- Inactive accounts identified: Track count
+- Excessive permissions found: Track count
+- Average access per user: Trending
+
+9.2 Monthly Reporting
+Report includes:
+- Reviews completed vs scheduled
+- Overdue reviews
+- Access revocations implemented
+- Inactive accounts identified
+- Trends and patterns
+- Issues and remediation
+
+10. AUDIT AND COMPLIANCE
+
+10.1 Documentation Requirements
+Maintain for 3 years:
+- Access review schedules
+- Access reports generated
+- Manager review responses
+- Approval/revocation decisions
+- Change implementation logs
+- Exception approvals
+- Completion certificates
+
+10.2 Audit Trail
+System must log:
+- Who conducted review
+- When review occurred
+- What decisions were made
+- Why access was approved/revoked
+- When changes were implemented
+- Who implemented changes
+
+11. ESCALATION PROCESS
+
+11.1 Overdue Reviews
+- Day 15: Automated reminder to manager
+- Day 18: Second reminder with escalation notice
+- Day 21: Escalate to manager's supervisor
+- Day 25: Escalate to Department VP
+- Day 30: Report to CISO, consider access suspension
+
+11.2 Non-compliance Consequences
+- Documented in performance review
+- Mandatory security awareness training
+- Potential access suspension
+- Executive notification
+- Audit finding
+
+12. AUTOMATED TOOLS AND SYSTEMS
+
+12.1 Access Review Platform
+ACME uses the following tools:
+- Identity Governance Tool: SailPoint IdentityIQ
+- Report Generation: Automated monthly
+- Workflow Management: ServiceNow
+- Access Provisioning: Okta
+
+12.2 Automation Features
+- Scheduled report generation
+- Automated email notifications
+- Workflow tracking
+- Approval routing
+- Change implementation
+- Compliance dashboards
+
+13. SPECIAL ACCESS REVIEWS
+
+13.1 Privileged Access Management (PAM)
+Monthly review of:
+- Domain administrators
+- Database administrators
+- System administrators
+- Security administrators
+- Network administrators
+
+Validation Points:
+- Is privileged access still required?
+- Are privileged sessions monitored?
+- Is MFA enforced?
+- Are privileged credentials rotated?
+- Are activities logged and reviewed?
+
+13.2 External/Third-Party Access
+Quarterly review of:
+- Vendor access
+- Contractor access
+- Partner access
+- Customer admin access
+
+Additional Checks:
+- Is contract still active?
+- Is access scope appropriate?
+- Is NDA still valid?
+- Are sessions time-limited?
+- Is additional monitoring required?
+
+14. TRAINING AND AWARENESS
+
+14.1 Manager Training
+All managers with review responsibilities receive:
+- Annual access review training
+- Security awareness training
+- Compliance requirements briefing
+- Tool usage training
+- Q&A sessions
+
+14.2 Review Kickoff Sessions
+Before each quarterly review:
+- Email announcement with timeline
+- Training session for new managers
+- Q&A office hours
+- Help desk support available
+
+15. CONTINUOUS IMPROVEMENT
+
+15.1 Process Review
+Access review procedure evaluated:
+- After each review cycle
+- Following audit findings
+- When issues identified
+- Annually for effectiveness
+
+15.2 Metrics Analysis
+Analyze trends to identify:
+- Patterns of excessive access
+- Systems with highest revocation rates
+- Departments with compliance issues
+- Opportunities for automation
+- Training needs
+
+16. RELATED DOCUMENTS
+
+- Access Control Policy
+- User Account Management Procedure
+- Privileged Access Management Policy
+- Termination Procedure
+- Security Incident Response Plan
+
+APPROVAL
+
+IT Security Manager: _________________
+CISO: _________________
+Date: January 1, 2025
+
+Next Review Date: January 1, 2026
+
+For questions regarding user access reviews:
+IT Security Team: security@acme.com
+Help Desk: +1-555-HELPDESK
+Access Review Portal: https://access.acme.com

@@ -1,0 +1,381 @@
+ACME Corporation - Security Incident Log and Tracking System
+Document Version: 1.0
+Effective Date: January 2025
+Document Owner: IT Security Team
+
+═══════════════════════════════════════════════════════════════════════════════
+INCIDENT LOG REGISTER - 2025
+═══════════════════════════════════════════════════════════════════════════════
+
+1. PURPOSE OF INCIDENT LOG
+
+This incident log serves to:
+- Maintain comprehensive records of all security incidents
+- Track incident response activities and timeline
+- Document lessons learned and improvements
+- Support compliance requirements (ISO 27001, SOC 2, etc.)
+- Provide data for security metrics and reporting
+- Enable trend analysis and pattern recognition
+
+2. INCIDENT LOG MAINTENANCE REQUIREMENTS
+
+2.1 Log Entries Required For:
+✓ Confirmed security incidents
+✓ Suspected security incidents under investigation
+✓ Near-miss incidents (prevented attacks)
+✓ Security policy violations
+✓ Privacy breaches or data exposures
+✓ System compromises
+✓ Malware infections
+✓ Unauthorized access attempts (successful or failed)
+✓ Denial of service attacks
+✓ Social engineering attempts
+✓ Physical security breaches affecting IT
+
+2.2 Log Maintenance Standards
+- Entries made within 24 hours of incident detection
+- All fields completed accurately and thoroughly
+- Updates logged as incident progresses
+- Final entry upon incident closure
+- Quarterly log review conducted
+- Annual log audit performed
+- Retention: 7 years minimum
+
+═══════════════════════════════════════════════════════════════════════════════
+INCIDENT LOG TEMPLATE
+═══════════════════════════════════════════════════════════════════════════════
+
+INCIDENT ID: INC-2025-XXXX
+──────────────────────────────────────────────────────────────────────────────
+
+BASIC INFORMATION
+──────────────────────────────────────────────────────────────────────────────
+Date Reported:
+Time Reported (UTC):
+Reported By:
+Detection Method: [ ] SIEM Alert  [ ] User Report  [ ] Security Tool  [ ] Audit
+                  [ ] Monitoring   [ ] External Party  [ ] Other: __________
+
+INCIDENT CLASSIFICATION
+──────────────────────────────────────────────────────────────────────────────
+Incident Type:
+[ ] Malware/Ransomware        [ ] Unauthorized Access    [ ] Data Breach
+[ ] Phishing/Social Eng       [ ] Denial of Service      [ ] Insider Threat
+[ ] Lost/Stolen Device        [ ] Configuration Error    [ ] Policy Violation
+[ ] Physical Security         [ ] Third-Party Breach     [ ] Other: __________
+
+Severity Level:
+[ ] CRITICAL (P1) - Business-critical system down, active breach
+[ ] HIGH (P2)     - Significant impact, potential data exposure
+[ ] MEDIUM (P3)   - Limited impact, contained incident
+[ ] LOW (P4)      - Minor incident, no business impact
+
+INCIDENT DETAILS
+──────────────────────────────────────────────────────────────────────────────
+Brief Description:
+
+
+Systems Affected:
+
+
+Users/Accounts Affected:
+
+
+Data Involved:
+[ ] None  [ ] Public  [ ] Internal  [ ] Confidential  [ ] Restricted
+
+Estimated Number of Records: ___________
+
+INCIDENT RESPONSE TIMELINE
+──────────────────────────────────────────────────────────────────────────────
+Detection Time:
+Response Team Notified:
+Containment Started:
+Containment Completed:
+Eradication Started:
+Eradication Completed:
+Recovery Started:
+Recovery Completed:
+Incident Closed:
+
+Time to Detect (TTD):
+Time to Respond (TTR):
+Time to Contain (TTC):
+Time to Recovery:
+Total Incident Duration:
+
+RESPONSE TEAM
+──────────────────────────────────────────────────────────────────────────────
+Incident Manager:
+Security Analyst:
+System Administrator:
+Network Engineer:
+Legal Counsel:
+Communications Lead:
+External Support:
+
+INCIDENT NARRATIVE
+──────────────────────────────────────────────────────────────────────────────
+What Happened:
+
+
+How Was It Detected:
+
+
+Initial Assessment:
+
+
+CONTAINMENT ACTIONS
+──────────────────────────────────────────────────────────────────────────────
+Short-term Containment:
+[ ] Isolated affected systems from network
+[ ] Disabled compromised user accounts
+[ ] Blocked malicious IP addresses
+[ ] Revoked compromised credentials
+[ ] Shut down affected services
+[ ] Other: ___________________________________________________________
+
+Long-term Containment:
+[ ] Applied security patches
+[ ] Rebuilt compromised systems
+[ ] Implemented additional monitoring
+[ ] Strengthened access controls
+[ ] Other: ___________________________________________________________
+
+ERADICATION ACTIONS
+──────────────────────────────────────────────────────────────────────────────
+[ ] Removed malware/malicious code
+[ ] Closed vulnerability exploited
+[ ] Removed unauthorized access
+[ ] Reset compromised passwords
+[ ] Revoked unauthorized certificates
+[ ] Other: ___________________________________________________________
+
+RECOVERY ACTIONS
+──────────────────────────────────────────────────────────────────────────────
+[ ] Restored systems from clean backups
+[ ] Verified system integrity
+[ ] Returned systems to production
+[ ] Implemented additional safeguards
+[ ] Resumed normal operations
+[ ] Enhanced monitoring for 30 days
+[ ] Other: ___________________________________________________________
+
+EVIDENCE COLLECTED
+──────────────────────────────────────────────────────────────────────────────
+[ ] System logs (specify): _____________________________________________
+[ ] Network traffic captures (PCAP files)
+[ ] Forensic disk images
+[ ] Memory dumps
+[ ] Email headers/content
+[ ] Screenshots/photos
+[ ] Malware samples (quarantined)
+[ ] User statements/interviews
+[ ] Other: ___________________________________________________________
+
+Evidence Location: ____________________________________________________
+Chain of Custody Maintained: [ ] Yes  [ ] No
+
+ROOT CAUSE ANALYSIS
+──────────────────────────────────────────────────────────────────────────────
+Primary Cause:
+
+
+Contributing Factors:
+
+
+Vulnerability Exploited:
+
+
+How Vulnerability Existed:
+
+
+IMPACT ASSESSMENT
+──────────────────────────────────────────────────────────────────────────────
+Business Impact:
+[ ] Revenue loss: $__________
+[ ] Productivity loss: _____ hours
+[ ] Reputation damage
+[ ] Regulatory penalties
+[ ] Legal costs
+[ ] Customer impact: _____ customers affected
+[ ] System downtime: _____ hours
+
+Technical Impact:
+[ ] Systems compromised: _____
+[ ] Data accessed/exfiltrated: _____
+[ ] Services disrupted: _____
+[ ] Accounts compromised: _____
+
+Compliance Impact:
+[ ] Regulatory notification required
+[ ] Customer notification required
+[ ] Public disclosure required
+[ ] Audit finding expected
+
+NOTIFICATIONS
+──────────────────────────────────────────────────────────────────────────────
+Internal Notifications:
+[ ] Executive Management - Date: ___________
+[ ] IT Management - Date: ___________
+[ ] Legal Department - Date: ___________
+[ ] HR Department - Date: ___________
+[ ] Communications Team - Date: ___________
+
+External Notifications:
+[ ] Customers - Date: ___________  Count: _____
+[ ] Regulators - Date: ___________  Which: _____
+[ ] Law Enforcement - Date: ___________  Agency: _____
+[ ] Cyber Insurance - Date: ___________
+[ ] Business Partners - Date: ___________
+[ ] Media - Date: ___________
+
+LESSONS LEARNED
+──────────────────────────────────────────────────────────────────────────────
+What Went Well:
+
+
+What Could Be Improved:
+
+
+Gaps Identified:
+
+
+Training Needs:
+
+
+CORRECTIVE ACTIONS
+──────────────────────────────────────────────────────────────────────────────
+Action Item 1:
+Description: _________________________________________________________
+Responsible: ________________  Due Date: ___________  Status: _______
+
+Action Item 2:
+Description: _________________________________________________________
+Responsible: ________________  Due Date: ___________  Status: _______
+
+Action Item 3:
+Description: _________________________________________________________
+Responsible: ________________  Due Date: ___________  Status: _______
+
+INCIDENT CLOSURE
+──────────────────────────────────────────────────────────────────────────────
+All corrective actions completed: [ ] Yes  [ ] No
+Post-incident review conducted: [ ] Yes  [ ] No
+Documentation complete: [ ] Yes  [ ] No
+Lessons learned shared: [ ] Yes  [ ] No
+
+Closed By: ___________________________  Date: ___________
+Approved By (CISO): ___________________  Date: ___________
+
+═══════════════════════════════════════════════════════════════════════════════
+2025 INCIDENT LOG SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+JANUARY 2025
+──────────────────────────────────────────────────────────────────────────────
+INC-2025-0001 | 2025-01-05 | Phishing Email Campaign | MEDIUM | Closed
+- 15 employees reported phishing emails
+- No credentials compromised
+- Security awareness training refreshed
+
+INC-2025-0002 | 2025-01-12 | Malware Detection | LOW | Closed
+- Endpoint AV detected and quarantined malware on 1 workstation
+- No spread detected
+- System reimaged as precaution
+
+INC-2025-0003 | 2025-01-18 | Failed Login Attempts | LOW | Closed
+- Brute force attempt on admin account from external IP
+- Account locked after 5 failed attempts
+- IP address blocked at firewall
+
+INC-2025-0004 | 2025-01-25 | Unauthorized USB Device | MEDIUM | Closed
+- Employee used personal USB drive on work computer
+- DLP system blocked data transfer
+- Policy violation - employee counseled
+
+FEBRUARY 2025
+──────────────────────────────────────────────────────────────────────────────
+INC-2025-0005 | 2025-02-03 | Data Exposure | HIGH | Closed
+- S3 bucket accidentally set to public
+- Contained internal documents (no PII)
+- Detected within 2 hours, access revoked
+- No evidence of unauthorized access
+
+INC-2025-0006 | 2025-02-15 | Ransomware Attempt | CRITICAL | Closed
+- Ransomware detected on file server
+- Automated isolation triggered
+- Affected server rebuilt from backup
+- No data loss, 4 hours downtime
+
+[Additional months follow same format...]
+
+═══════════════════════════════════════════════════════════════════════════════
+INCIDENT STATISTICS - Q1 2025
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Incidents: 24
+
+By Severity:
+- CRITICAL: 2 (8%)
+- HIGH: 5 (21%)
+- MEDIUM: 10 (42%)
+- LOW: 7 (29%)
+
+By Type:
+- Malware: 6 (25%)
+- Phishing: 8 (33%)
+- Unauthorized Access: 4 (17%)
+- Policy Violations: 3 (13%)
+- Configuration Errors: 2 (8%)
+- Other: 1 (4%)
+
+Average Response Time:
+- CRITICAL: 12 minutes
+- HIGH: 45 minutes
+- MEDIUM: 3.2 hours
+- LOW: 8.5 hours
+
+Average Time to Resolution:
+- CRITICAL: 6.5 hours
+- HIGH: 18 hours
+- MEDIUM: 2.1 days
+- LOW: 1.3 days
+
+Trends:
+- 15% increase in phishing attempts vs Q4 2024
+- 30% reduction in malware incidents (improved EDR)
+- Faster detection due to enhanced SIEM rules
+- All incidents contained within SLA
+
+═══════════════════════════════════════════════════════════════════════════════
+INCIDENT LOG ACCESS AND REVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+Access Control:
+- Incident log restricted to authorized personnel only
+- View access: IT Security team, IT Management, CISO
+- Edit access: Incident Response Team only
+- Audit log maintained for all access
+
+Review Schedule:
+- Daily: Incident Response Team (active incidents)
+- Weekly: IT Security Manager (all incidents)
+- Monthly: CISO (summary and trends)
+- Quarterly: Executive Management (compliance)
+- Annually: External Auditor (compliance verification)
+
+Log Maintenance:
+- Master log maintained in ServiceNow
+- Backup maintained in SharePoint (read-only)
+- Access via: https://incidents.acme.com
+- Support: security@acme.com
+
+═══════════════════════════════════════════════════════════════════════════════
+
+APPROVAL
+
+IT Security Manager: _______________________  Date: January 1, 2025
+Chief Information Security Officer: ________  Date: January 1, 2025
+
+This incident log is reviewed and updated continuously throughout 2025.

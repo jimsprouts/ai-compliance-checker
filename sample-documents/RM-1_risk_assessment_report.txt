@@ -1,0 +1,551 @@
+ACME Corporation - Annual Information Security Risk Assessment
+Report Year: 2025
+Assessment Period: January 1 - January 31, 2025
+Report Date: February 1, 2025
+Classification: CONFIDENTIAL - Internal Use Only
+
+Prepared by: Information Security Risk Management Team
+Reviewed by: Chief Information Security Officer
+Approved by: Risk Management Committee
+
+═══════════════════════════════════════════════════════════════════════════════
+EXECUTIVE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Assessment Overview
+───────────────────────────────────────────────────────────────────────────────
+This annual information security risk assessment evaluates ACME Corporation's
+information assets, identifies threats and vulnerabilities, analyzes risks,
+and recommends risk treatment strategies to maintain an acceptable level of
+security risk.
+
+Key Findings
+───────────────────────────────────────────────────────────────────────────────
+✓ Total Risks Identified: 47
+✓ Critical Risks: 3
+✓ High Risks: 8
+✓ Medium Risks: 22
+✓ Low Risks: 14
+
+Overall Risk Posture: MODERATE (acceptable with mitigation plans in place)
+
+Previous Year Comparison
+───────────────────────────────────────────────────────────────────────────────
+- Total risks decreased by 12% (from 53 to 47)
+- Critical risks decreased from 5 to 3 (60% reduction)
+- High risks increased from 6 to 8 (due to new cloud initiatives)
+- Overall risk posture improved from "Moderate-High" to "Moderate"
+
+Priority Actions Required
+───────────────────────────────────────────────────────────────────────────────
+1. Implement multi-factor authentication enterprise-wide (Critical)
+2. Deploy advanced endpoint protection on all devices (Critical)
+3. Conduct penetration testing of external-facing systems (High)
+4. Enhance data loss prevention controls (High)
+5. Complete security awareness training for all staff (High)
+
+═══════════════════════════════════════════════════════════════════════════════
+1. RISK ASSESSMENT METHODOLOGY
+═══════════════════════════════════════════════════════════════════════════════
+
+1.1 Framework and Standards
+───────────────────────────────────────────────────────────────────────────────
+This assessment follows:
+✓ NIST SP 800-30 (Risk Assessment Guide)
+✓ ISO 27001:2022 (Information Security Management)
+✓ ISO 31000 (Risk Management Guidelines)
+✓ NIST Cybersecurity Framework 1.1
+✓ FAIR (Factor Analysis of Information Risk) methodology
+
+1.2 Assessment Scope
+───────────────────────────────────────────────────────────────────────────────
+Included in Scope:
+✓ All information systems and applications
+✓ Network infrastructure and data centers
+✓ Cloud services and SaaS applications
+✓ Mobile devices and endpoints
+✓ Third-party vendor connections
+✓ Physical security of IT assets
+✓ Personnel and processes
+✓ Business operations dependent on IT
+
+Excluded from Scope:
+- Building management systems (covered in separate assessment)
+- Manufacturing equipment (OT assessment conducted separately)
+- Subsidiaries (assessed independently)
+
+1.3 Risk Calculation Method
+───────────────────────────────────────────────────────────────────────────────
+Risk Level = Likelihood × Impact
+
+Likelihood Scale (1-5):
+1 = Rare (< 5% annual probability)
+2 = Unlikely (5-25% annual probability)
+3 = Possible (25-50% annual probability)
+4 = Likely (50-75% annual probability)
+5 = Almost Certain (> 75% annual probability)
+
+Impact Scale (1-5):
+1 = Negligible (< $10K loss, minimal disruption)
+2 = Minor ($10K-$100K loss, < 1 day disruption)
+3 = Moderate ($100K-$500K loss, 1-3 days disruption)
+4 = Major ($500K-$5M loss, 3-7 days disruption)
+5 = Severe (> $5M loss, > 7 days disruption or catastrophic impact)
+
+Risk Rating Matrix:
+Impact →    1         2         3         4         5
+Likelihood ↓
+5          Medium    High      High      Critical  Critical
+4          Low       Medium    High      High      Critical
+3          Low       Medium    Medium    High      High
+2          Low       Low       Medium    Medium    High
+1          Low       Low       Low       Medium    Medium
+
+═══════════════════════════════════════════════════════════════════════════════
+2. CRITICAL RISKS (RISK SCORE 20-25)
+═══════════════════════════════════════════════════════════════════════════════
+
+RISK #1: Insufficient Multi-Factor Authentication (MFA) Coverage
+───────────────────────────────────────────────────────────────────────────────
+Risk ID: CR-2025-001
+Category: Access Control
+Current Status: OPEN
+
+Threat: Account compromise through credential theft or phishing
+Vulnerability: Only 60% of user accounts have MFA enabled
+Asset at Risk: User accounts, corporate systems, sensitive data
+
+Likelihood: 4 (Likely)
+Impact: 5 (Severe - potential for widespread data breach)
+Risk Score: 20 (CRITICAL)
+
+Current Controls:
+- MFA available via Microsoft Authenticator
+- Enforced for VPN access
+- Enforced for administrators
+
+Gap Analysis:
+- 40% of standard user accounts lack MFA
+- No MFA for some legacy applications
+- Inconsistent enforcement across systems
+
+Business Impact:
+- Potential data breach affecting 10,000+ customer records
+- Regulatory fines (GDPR, SOX)
+- Reputation damage
+- Estimated financial impact: $2M - $10M
+
+Recommended Treatment:
+□ Phase 1 (30 days): Enforce MFA for all cloud applications
+□ Phase 2 (60 days): Enforce MFA for all VPN and remote access
+□ Phase 3 (90 days): Enforce MFA for all user accounts
+□ Phase 4 (120 days): Implement MFA for legacy applications
+
+Owner: IT Security Director
+Target Completion: April 30, 2025
+Budget Required: $50,000 (licensing + implementation)
+
+RISK #2: Unpatched Critical Vulnerabilities in Production Systems
+───────────────────────────────────────────────────────────────────────────────
+Risk ID: CR-2025-002
+Category: Vulnerability Management
+Current Status: IN PROGRESS
+
+Threat: Exploitation of known vulnerabilities by threat actors
+Vulnerability: 15 production servers with critical patches pending > 30 days
+Asset at Risk: Production servers, customer data, business operations
+
+Likelihood: 5 (Almost Certain - actively exploited in the wild)
+Impact: 4 (Major - system compromise, data exposure)
+Risk Score: 20 (CRITICAL)
+
+Current Controls:
+- Vulnerability scanning (weekly)
+- Patch management process
+- Change management approvals
+
+Gap Analysis:
+- Patch testing delays application
+- Change freeze windows limit patching
+- Some systems require downtime for patching
+- Resource constraints in IT operations
+
+Affected Systems:
+- 8 Windows servers (critical security updates pending)
+- 4 Linux servers (kernel vulnerabilities)
+- 3 database servers (SQL Server vulnerabilities)
+
+Known Exploits:
+- CVE-2024-XXXXX (actively exploited, CVSS 9.8)
+- CVE-2024-YYYYY (public exploit available, CVSS 9.1)
+
+Business Impact:
+- Potential system compromise
+- Service disruption (24-48 hours)
+- Data breach possibility
+- Estimated financial impact: $1M - $5M
+
+Recommended Treatment:
+□ Emergency patching of critical vulnerabilities (within 7 days)
+□ Implement expedited patch testing process
+□ Schedule maintenance windows for remaining patches
+□ Consider compensating controls (network segmentation, IPS rules)
+
+Owner: IT Operations Manager
+Target Completion: February 15, 2025
+Budget Required: $0 (resources reallocated)
+
+RISK #3: Inadequate Backup and Disaster Recovery Testing
+───────────────────────────────────────────────────────────────────────────────
+Risk ID: CR-2025-003
+Category: Business Continuity
+Current Status: OPEN
+
+Threat: Ransomware attack or natural disaster causing data loss
+Vulnerability: Backup recovery not tested for 18 months
+Asset at Risk: All business data, system availability
+
+Likelihood: 4 (Likely - ransomware attacks increasing)
+Impact: 5 (Severe - potential permanent data loss)
+Risk Score: 20 (CRITICAL)
+
+Current Controls:
+- Daily backups to on-site storage
+- Weekly backups to cloud storage
+- Backup monitoring and alerts
+- Disaster recovery plan documented
+
+Gap Analysis:
+- Backup recovery not tested since June 2023
+- Recovery time objectives (RTO) not validated
+- No ransomware-specific recovery plan
+- Backup integrity verification incomplete
+
+Last Test Results (June 2023):
+- 3 out of 5 systems successfully restored
+- 2 systems had backup corruption issues
+- Average recovery time: 12 hours (exceeds 4-hour RTO)
+
+Business Impact:
+- Potential data loss (up to 24 hours)
+- Extended downtime (days vs hours)
+- Business operations halted
+- Customer impact and revenue loss
+- Estimated financial impact: $5M - $15M
+
+Recommended Treatment:
+□ Conduct full DR test within 30 days
+□ Implement monthly backup recovery tests (sample systems)
+□ Deploy immutable backups (ransomware protection)
+□ Document and update DR procedures
+□ Train DR team on recovery procedures
+
+Owner: Infrastructure Manager
+Target Completion: March 15, 2025
+Budget Required: $75,000 (immutable backup solution)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. HIGH RISKS (RISK SCORE 15-19)
+═══════════════════════════════════════════════════════════════════════════════
+
+HIGH RISK SUMMARY TABLE
+───────────────────────────────────────────────────────────────────────────────
+Risk ID    | Description                          | Score | Owner
+───────────────────────────────────────────────────────────────────────────────
+HR-2025-001| Insufficient Security Awareness      | 16    | CISO
+HR-2025-002| Third-Party Vendor Security Gaps     | 16    | Procurement
+HR-2025-003| Weak Password Policies               | 15    | IT Security
+HR-2025-004| Lack of Network Segmentation         | 18    | Network Eng
+HR-2025-005| Inadequate Data Loss Prevention      | 17    | IT Security
+HR-2025-006| Cloud Misconfiguration Risks         | 16    | Cloud Ops
+HR-2025-007| Mobile Device Security Gaps          | 15    | IT Ops
+HR-2025-008| Insufficient Penetration Testing     | 15    | CISO
+
+[Detailed descriptions available in Appendix A]
+
+═══════════════════════════════════════════════════════════════════════════════
+4. MEDIUM RISKS (RISK SCORE 8-14)
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Medium Risks: 22
+
+Common Themes:
+- Process and policy gaps (8 risks)
+- Technical debt and legacy systems (6 risks)
+- Incomplete security controls (5 risks)
+- Third-party and supply chain issues (3 risks)
+
+Top 5 Medium Risks by Priority:
+1. MR-2025-003: Lack of automated threat intelligence (Score: 12)
+2. MR-2025-007: Email security gaps (Score: 12)
+3. MR-2025-011: Physical security vulnerabilities (Score: 10)
+4. MR-2025-014: Incomplete asset inventory (Score: 10)
+5. MR-2025-019: API security weaknesses (Score: 9)
+
+[Full list available in Appendix B]
+
+═══════════════════════════════════════════════════════════════════════════════
+5. LOW RISKS (RISK SCORE 1-7)
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Low Risks: 14
+
+These risks are monitored but do not require immediate action.
+Standard operating procedures and existing controls are sufficient.
+
+Examples:
+- Social media policy compliance
+- Minor software version discrepancies
+- Documentation gaps (non-critical)
+- Low-sensitivity data exposure scenarios
+
+[Full list available in Appendix C]
+
+═══════════════════════════════════════════════════════════════════════════════
+6. RISK TREATMENT SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Treatment Strategies
+───────────────────────────────────────────────────────────────────────────────
+Accept: 14 risks (all Low risks)
+Mitigate: 30 risks (all Critical, High, and most Medium risks)
+Transfer: 2 risks (via cyber insurance)
+Avoid: 1 risk (discontinue risky practice)
+
+Total Budget Required: $475,000
+
+Budget Breakdown:
+- Critical risk mitigation: $125,000
+- High risk mitigation: $250,000
+- Medium risk mitigation: $100,000
+
+Timeline:
+- Q1 2025: Address all Critical and 50% of High risks
+- Q2 2025: Complete remaining High risks, start Medium risks
+- Q3-Q4 2025: Address Medium risks, continuous monitoring
+
+═══════════════════════════════════════════════════════════════════════════════
+7. THREAT LANDSCAPE ANALYSIS
+═══════════════════════════════════════════════════════════════════════════════
+
+7.1 External Threats
+───────────────────────────────────────────────────────────────────────────────
+Ransomware:
+- Threat Level: CRITICAL
+- Trend: Increasing (200% year-over-year industry-wide)
+- ACME Specific: 3 attempted attacks blocked in 2024
+- Mitigation: Enhanced email security, user training, backups
+
+Phishing and Social Engineering:
+- Threat Level: HIGH
+- Trend: Stable but sophisticated
+- ACME Specific: 15% of users clicked simulated phishing (Q4 2024)
+- Mitigation: Security awareness training, email filtering
+
+Advanced Persistent Threats (APT):
+- Threat Level: MEDIUM
+- Trend: Targeted attacks on financial services sector
+- ACME Specific: No known APT activity
+- Mitigation: Threat intelligence, advanced monitoring
+
+Supply Chain Attacks:
+- Threat Level: MEDIUM
+- Trend: Increasing sophistication
+- ACME Specific: Vendor security assessments underway
+- Mitigation: Vendor risk management program
+
+7.2 Internal Threats
+───────────────────────────────────────────────────────────────────────────────
+Insider Threats (Malicious):
+- Threat Level: MEDIUM
+- 2024 Incidents: 1 (data exfiltration attempt, prevented)
+- Mitigation: DLP, user activity monitoring, access reviews
+
+Insider Threats (Negligent):
+- Threat Level: HIGH
+- 2024 Incidents: 8 (policy violations, data mishandling)
+- Mitigation: Security awareness training, automated controls
+
+Shadow IT:
+- Threat Level: MEDIUM
+- Discovery: 23 unauthorized cloud services identified
+- Mitigation: Cloud access security broker (CASB), policy enforcement
+
+═══════════════════════════════════════════════════════════════════════════════
+8. ASSET INVENTORY AND CLASSIFICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Critical Assets (High Value, High Risk):
+───────────────────────────────────────────────────────────────────────────────
+1. Customer Database (10M+ records)
+   - Classification: Confidential
+   - Controls: Encryption, access controls, monitoring
+   - Risk Level: High
+
+2. Financial Systems (ERP, accounting)
+   - Classification: Restricted
+   - Controls: Segregation of duties, audit logging
+   - Risk Level: Medium
+
+3. Intellectual Property Repository
+   - Classification: Confidential
+   - Controls: DLP, encryption, access controls
+   - Risk Level: High
+
+4. Email System (corporate communications)
+   - Classification: Internal
+   - Controls: Email security gateway, archiving
+   - Risk Level: Medium
+
+5. Active Directory (identity management)
+   - Classification: Restricted
+   - Controls: MFA, privileged access management
+   - Risk Level: High
+
+═══════════════════════════════════════════════════════════════════════════════
+9. COMPLIANCE AND REGULATORY CONSIDERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Applicable Regulations:
+───────────────────────────────────────────────────────────────────────────────
+✓ GDPR (General Data Protection Regulation)
+  - Compliance Status: Compliant with minor gaps
+  - Risks: Data subject rights automation needed
+
+✓ SOX (Sarbanes-Oxley Act)
+  - Compliance Status: Compliant
+  - Audit: Passed with no significant findings
+
+✓ PCI DSS (Payment Card Industry Data Security Standard)
+  - Compliance Status: Compliant (Level 2 merchant)
+  - Next Assessment: June 2025
+
+✓ CCPA (California Consumer Privacy Act)
+  - Compliance Status: Compliant
+  - Risks: Automated deletion processes needed
+
+✓ ISO 27001
+  - Compliance Status: Certified
+  - Next Audit: March 2025
+  - Risks: Several findings from last audit being addressed
+
+═══════════════════════════════════════════════════════════════════════════════
+10. RECOMMENDATIONS AND ACTION PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+Immediate Actions (0-30 days):
+───────────────────────────────────────────────────────────────────────────────
+□ Patch all critical vulnerabilities
+□ Enforce MFA for cloud applications
+□ Schedule and execute DR test
+□ Deploy endpoint protection on remaining devices
+□ Complete vendor security assessments (high-risk vendors)
+
+Short-term Actions (30-90 days):
+───────────────────────────────────────────────────────────────────────────────
+□ Complete MFA rollout enterprise-wide
+□ Implement network segmentation (critical systems)
+□ Deploy data loss prevention controls
+□ Conduct penetration testing
+□ Launch security awareness training program
+
+Medium-term Actions (90-180 days):
+───────────────────────────────────────────────────────────────────────────────
+□ Implement security information and event management (SIEM) enhancements
+□ Deploy cloud security posture management (CSPM)
+□ Establish threat intelligence program
+□ Remediate medium-priority risks
+□ Update and test all DR procedures
+
+Long-term Actions (180-365 days):
+───────────────────────────────────────────────────────────────────────────────
+□ Achieve zero-trust architecture maturity
+□ Implement advanced threat detection capabilities
+□ Establish security operations center (SOC)
+□ Conduct tabletop exercises (quarterly)
+□ Continuous monitoring and improvement
+
+═══════════════════════════════════════════════════════════════════════════════
+11. METRICS AND KEY PERFORMANCE INDICATORS
+═══════════════════════════════════════════════════════════════════════════════
+
+Current Year Performance:
+───────────────────────────────────────────────────────────────────────────────
+Mean Time to Detect (MTTD): 8 hours (Target: < 6 hours)
+Mean Time to Respond (MTTR): 24 hours (Target: < 12 hours)
+Phishing Click Rate: 15% (Target: < 5%)
+Patch Compliance (30 days): 85% (Target: > 95%)
+Security Training Completion: 78% (Target: 100%)
+Critical Vulnerabilities Open > 30 days: 15 (Target: 0)
+Risk Assessment Completion: 100% ✓
+
+Year-over-Year Trends:
+───────────────────────────────────────────────────────────────────────────────
+Security incidents: Decreased 25%
+Risks identified: Decreased 12%
+Mean time to remediate: Improved 30%
+Security awareness: Improved 45%
+
+═══════════════════════════════════════════════════════════════════════════════
+12. CONCLUSION
+═══════════════════════════════════════════════════════════════════════════════
+
+Overall Assessment:
+───────────────────────────────────────────────────────────────────────────────
+ACME Corporation's information security risk posture is MODERATE and within
+acceptable parameters. While improvements have been made over the past year,
+critical and high-risk items require immediate attention to prevent potential
+security incidents.
+
+The organization has made progress in several areas:
+✓ Reduced total number of risks
+✓ Decreased critical risks significantly
+✓ Improved security awareness
+✓ Enhanced monitoring capabilities
+✓ Strengthened vendor risk management
+
+Priority Focus Areas:
+───────────────────────────────────────────────────────────────────────────────
+1. Multi-factor authentication deployment
+2. Vulnerability management and patching
+3. Backup and disaster recovery testing
+4. Security awareness training
+5. Network segmentation and zero-trust progression
+
+With the recommended investments and focused execution of the mitigation plan,
+ACME Corporation can achieve a "Low-Moderate" risk posture by Q4 2025.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+APPROVAL AND SIGN-OFF
+
+Risk Assessment Team Lead: _______________________
+Date: February 1, 2025
+
+Chief Information Security Officer: _______________________
+Date: February 1, 2025
+
+Chief Information Officer: _______________________
+Date: February 2, 2025
+
+Chief Risk Officer: _______________________
+Date: February 2, 2025
+
+Risk Management Committee Chair: _______________________
+Date: February 5, 2025
+
+Board of Directors (Noted): _______________________
+Date: February 15, 2025
+
+Next Annual Risk Assessment: Scheduled for January 2026
+
+Report Distribution:
+☑ Executive Management
+☑ Risk Management Committee
+☑ Board of Directors (Executive Summary)
+☑ IT Leadership
+☑ Information Security Team
+☑ Internal Audit
+☑ External Auditors (upon request)
+
+Classification: CONFIDENTIAL - Internal Use Only

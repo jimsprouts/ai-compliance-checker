@@ -1,0 +1,53 @@
+# Environment variables
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Java/Maven
+target/
+*.class
+*.jar
+*.war
+!checklist-service/target/*.jar
+!report-generator/target/*.jar
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+.docker/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test results
+test-results/
+coverage/
+
+# Build artifacts
+*.pid
+*.seed
+*.pid.lock
+
+# OS
+Thumbs.db

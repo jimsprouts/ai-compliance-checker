@@ -1,0 +1,527 @@
+ACME Corporation - Data Retention and Disposal Policy
+Document Version: 2.5
+Effective Date: January 2025
+Document Owner: Chief Information Officer / Legal Department
+
+═══════════════════════════════════════════════════════════════════════════════
+EXECUTIVE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+This policy establishes requirements for retaining and disposing of ACME
+Corporation's business records and data assets in compliance with legal,
+regulatory, and business requirements.
+
+Purpose: Define what data to keep, how long to keep it, and how to dispose of it
+Scope: All data types, all storage media, all business units
+Compliance: Mandatory for all employees, contractors, and systems
+
+═══════════════════════════════════════════════════════════════════════════════
+1. PURPOSE AND SCOPE
+═══════════════════════════════════════════════════════════════════════════════
+
+1.1 Purpose
+─────────────────────────────────────────────────────────────────────────────
+This policy ensures ACME Corporation:
+✓ Complies with legal and regulatory retention requirements
+✓ Preserves business-critical information
+✓ Reduces storage costs by eliminating unnecessary data
+✓ Mitigates legal and compliance risks
+✓ Protects sensitive information through proper disposal
+✓ Supports e-discovery and legal hold requirements
+
+1.2 Scope
+─────────────────────────────────────────────────────────────────────────────
+This policy applies to all data in any format:
+
+Electronic Data:
+- Email and electronic communications
+- Documents and spreadsheets
+- Databases and structured data
+- System logs and audit trails
+- Backup and archive media
+- Cloud-stored information
+- Mobile device data
+- Social media content
+
+Physical Records:
+- Paper documents
+- Printed reports
+- Contracts and agreements
+- Personnel files
+- Financial records
+- Meeting minutes and notes
+
+Other Media:
+- Audio and video recordings
+- Photographs and images
+- Microfilm and microfiche
+- Removable storage media (USB drives, optical discs)
+
+═══════════════════════════════════════════════════════════════════════════════
+2. DATA CLASSIFICATION AND RETENTION PERIODS
+═══════════════════════════════════════════════════════════════════════════════
+
+2.1 Financial and Accounting Records
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+General Ledger                       | 7 years          | Tax law
+Accounts Payable/Receivable          | 7 years          | Tax law
+Bank Statements and Reconciliations  | 7 years          | Tax law
+Invoices and Receipts                | 7 years          | Tax law
+Expense Reports                      | 7 years          | Tax law
+Tax Returns and Supporting Docs      | Permanent        | IRS requirement
+Audit Reports (External)             | Permanent        | SOX/Best practice
+Annual Financial Statements          | Permanent        | Corporate records
+Payroll Records                      | 7 years          | FLSA
+Employee Expense Reports             | 7 years          | Tax law
+Credit Card Statements               | 7 years          | Tax law
+Budget Documents                     | 3 years          | Business need
+
+2.2 Legal and Contracts
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+Contracts (Active)                   | Life + 7 years   | Statute of limitations
+Contracts (Expired)                  | 7 years          | Statute of limitations
+Legal Correspondence                 | 7 years          | Attorney-client privilege
+Litigation Files                     | Permanent        | Legal hold
+Settlement Agreements                | Permanent        | Legal requirement
+Intellectual Property (Patents)      | Permanent        | Corporate asset
+Trademarks and Copyrights           | Permanent        | Corporate asset
+Corporate Bylaws and Amendments      | Permanent        | Corporate law
+Board Meeting Minutes                | Permanent        | Corporate law
+Shareholder Records                  | Permanent        | Securities law
+Stock Certificates                   | Permanent        | Securities law
+Insurance Policies                   | Life + 7 years   | Claims potential
+
+2.3 Human Resources and Personnel
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+Employee Personnel Files             | Termination + 7 years | EEOC
+Employment Applications (Hired)      | Termination + 7 years | EEOC
+Employment Applications (Not Hired)  | 2 years          | EEOC
+Resumes (Unsolicited)               | 1 year           | EEOC
+Interview Notes                      | 2 years          | EEOC
+Performance Reviews                  | Termination + 7 years | Employment law
+Disciplinary Records                 | Termination + 7 years | Employment law
+Termination Records                  | 7 years          | EEOC/DOL
+Wage and Hour Records               | 7 years          | FLSA
+Benefits Administration Records      | Termination + 7 years | ERISA
+Workers Compensation Claims         | 7 years          | State law
+FMLA Records                        | 3 years          | FMLA
+I-9 Forms                           | 3 years or 1 year after | Immigration law
+                                     | termination (whichever longer)
+Drug Test Results                    | 1 year           | ADA
+Medical Records                      | Termination + 30 years | OSHA
+Training Records                     | Termination + 3 years | Business need
+Time Sheets                         | 7 years          | FLSA
+
+2.4 IT and Information Systems
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+System Access Logs                   | 1 year active    | Security/Audit
+                                     | 6 years archive  |
+Security Audit Logs                  | 7 years          | Compliance
+Email (General Business)             | 3 years          | Business need
+Email (Executives/Legal)             | 7 years          | E-discovery
+Email (Regulatory Compliance)        | Per regulation   | Various
+Backup Tapes                        | 30 days (daily)  | Business continuity
+                                     | 1 year (monthly) |
+                                     | 7 years (annual) |
+System Documentation                 | Life of system + 3 years | Business need
+Software Licenses                    | Life + 3 years   | Contract law
+Disaster Recovery Plans              | Current + 3 versions | Business continuity
+Network Diagrams                     | Current + 2 years | Business need
+Database Records                     | Per data type    | Various
+Website Content                      | 3 years          | Business need
+Social Media Posts                   | 3 years          | Business/Legal
+Instant Messages (Business)          | 3 years          | Compliance
+
+2.5 Customer and Sales Records
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+Customer Contracts                   | Life + 7 years   | Contract law
+Sales Orders                         | 7 years          | Tax/Business
+Quotes and Proposals                 | 3 years          | Business need
+Customer Service Records             | 5 years          | Business/Legal
+Warranty Claims                      | 7 years          | Product liability
+Product Returns                      | 3 years          | Business need
+Customer Communications (Email)      | 5 years          | Business/Legal
+CRM Data                            | Relationship + 3 years | Business need
+Marketing Materials                  | 3 years          | Business need
+Pricing Information                  | 7 years          | Antitrust
+
+2.6 Operational and Project Records
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+Project Documentation               | Project close + 5 years | Business need
+Meeting Minutes (Non-Board)         | 3 years          | Business need
+Policies and Procedures             | Current + 3 versions | Compliance
+Vendor Contracts                    | Life + 7 years   | Contract law
+Purchase Orders                     | 7 years          | Tax law
+Shipping Records                    | 3 years          | Business need
+Inventory Records                   | 7 years          | Tax law
+Quality Control Records             | 7 years          | Product liability
+Compliance Certifications           | 7 years          | Regulatory
+Safety Records                      | 30 years         | OSHA
+
+2.7 Privacy and Personal Data (GDPR/CCPA)
+─────────────────────────────────────────────────────────────────────────────
+Record Type                          | Retention Period | Legal Basis
+─────────────────────────────────────────────────────────────────────────────
+Personal Data (Customers)            | Purpose + 30 days | GDPR/CCPA
+Personal Data (Employees)            | See HR section   | GDPR/Employment law
+Marketing Consent Records            | Consent + 3 years | GDPR
+Data Processing Agreements           | Life + 7 years   | GDPR
+Privacy Impact Assessments           | 7 years          | GDPR/Best practice
+Data Breach Records                  | 7 years          | GDPR
+Subject Access Requests              | 3 years          | GDPR
+Data Deletion Logs                   | 3 years          | GDPR/Accountability
+
+═══════════════════════════════════════════════════════════════════════════════
+3. RETENTION IMPLEMENTATION
+═══════════════════════════════════════════════════════════════════════════════
+
+3.1 Active Data Retention
+─────────────────────────────────────────────────────────────────────────────
+Phase 1: Active Storage (Online)
+- Frequently accessed data
+- Stored on primary storage systems
+- Immediately available
+- Backed up according to backup policy
+- Duration: Per retention schedule
+
+Phase 2: Near-Line Storage
+- Infrequently accessed data
+- Moved to lower-cost storage
+- Available within hours
+- Reduced backup frequency
+- Duration: Varies by data type
+
+Phase 3: Archival Storage (Offline)
+- Rarely accessed data
+- Long-term retention requirement
+- Retrieval may take days
+- Stored on tape or cold storage
+- Duration: Remainder of retention period
+
+3.2 Email Retention
+─────────────────────────────────────────────────────────────────────────────
+Automatic Archiving:
+- All email automatically archived after 90 days
+- Archive searchable by users
+- Retention applied based on classification
+- Legal hold capability enabled
+
+Retention Categories:
+- General Business Email: 3 years
+- Executive Email: 7 years
+- Legal/Compliance Email: 7 years
+- HR Email: 7 years
+- Finance Email: 7 years
+
+User Responsibilities:
+- Do not delete emails subject to legal hold
+- Classify important emails appropriately
+- Do not use personal email for business
+
+3.3 Document Management
+─────────────────────────────────────────────────────────────────────────────
+SharePoint/Document Management System:
+- Automatic retention labels applied
+- Workflows for approval and review
+- Version control enabled
+- Audit trail maintained
+- Automatic deletion after retention period
+
+File Shares:
+- Retention policies applied automatically
+- Quarterly cleanup reminders
+- Data owner review required
+- Orphaned data identified and removed
+
+3.4 Database Retention
+─────────────────────────────────────────────────────────────────────────────
+Operational Databases:
+- Active transactions: Online
+- Historical transactions: Archived after fiscal year
+- Retention per data classification
+- Archive databases for long-term storage
+
+Data Warehouse:
+- Aggregated data retained longer
+- Detail data summarized over time
+- Archive older detail data
+- Maintain for trend analysis
+
+═══════════════════════════════════════════════════════════════════════════════
+4. DATA DISPOSAL
+═══════════════════════════════════════════════════════════════════════════════
+
+4.1 Electronic Data Disposal
+─────────────────────────────────────────────────────────────────────────────
+Secure Deletion Methods:
+
+Hard Drives and SSDs:
+✓ DoD 5220.22-M (7-pass overwrite) for HDDs
+✓ Cryptographic erasure for encrypted drives
+✓ ATA Secure Erase for SSDs
+✓ Physical destruction for highly sensitive data
+
+Approved Tools:
+- DBAN (Darik's Boot and Nuke)
+- Blancco Drive Eraser
+- Manufacturer utilities (for SSDs)
+- Degausser (for magnetic media)
+
+Disposal Process:
+1. Identify data for disposal
+2. Verify retention period expired
+3. Check for legal holds
+4. Execute approved deletion method
+5. Generate certificate of destruction
+6. Log disposal in asset management system
+
+4.2 Physical Media Disposal
+─────────────────────────────────────────────────────────────────────────────
+Paper Records:
+✓ Cross-cut shredding (minimum P-4 security level)
+✓ Locked shred bins in secure areas
+✓ Certified destruction service
+✓ Certificate of destruction obtained
+
+Backup Tapes:
+✓ Degaussing (for magnetic tapes)
+✓ Physical destruction (shredding/crushing)
+✓ Certificate of destruction
+
+Optical Media (CDs/DVDs):
+✓ Physical destruction (shredding)
+✓ Incineration for highly sensitive data
+
+4.3 Device Disposal
+─────────────────────────────────────────────────────────────────────────────
+Computers and Laptops:
+1. Full disk encryption verification
+2. Cryptographic key destruction
+3. Multiple-pass overwrite OR physical destruction
+4. Asset tag removal
+5. Disposal through certified e-waste recycler
+
+Mobile Devices:
+1. Factory reset (multiple times)
+2. Encryption key wipe
+3. Physical destruction of storage chips
+4. Certificate of destruction
+
+Printers and Copiers:
+1. Remove and destroy hard drives
+2. Clear memory and settings
+3. Dispose through certified recycler
+
+4.4 Cloud Data Disposal
+─────────────────────────────────────────────────────────────────────────────
+SaaS Applications:
+✓ Request data deletion from vendor
+✓ Verify deletion completed
+✓ Obtain certificate of deletion
+✓ Review data processing agreement
+
+Cloud Storage (AWS/Azure/GCP):
+✓ Delete objects/files
+✓ Delete encryption keys (cryptographic erasure)
+✓ Delete backups and snapshots
+✓ Verify deletion in all regions
+✓ Document deletion in change log
+
+4.5 Disposal Verification
+─────────────────────────────────────────────────────────────────────────────
+All data disposal must include:
+□ Disposal request form completed
+□ Approval from data owner
+□ Verification retention period expired
+□ Legal hold check performed
+□ Approved method used
+□ Certificate of destruction obtained
+□ Disposal logged in tracking system
+□ Annual audit of disposal processes
+
+═══════════════════════════════════════════════════════════════════════════════
+5. LEGAL HOLD
+═══════════════════════════════════════════════════════════════════════════════
+
+5.1 Legal Hold Process
+─────────────────────────────────────────────────────────────────────────────
+When Legal Hold Initiated:
+1. Legal department issues legal hold notice
+2. IT freezes automatic deletion
+3. Affected custodians notified
+4. Data preservation begins immediately
+5. Monitoring and compliance tracking
+
+Legal Hold Duration:
+- Until litigation/investigation concluded
+- Release authorized by Legal department only
+- Data restored to normal retention after release
+
+5.2 Legal Hold Scope
+─────────────────────────────────────────────────────────────────────────────
+May Include:
+✓ Email communications
+✓ Documents and files
+✓ Database records
+✓ Instant messages
+✓ Social media content
+✓ System logs
+✓ Backup tapes
+✓ Any potentially relevant data
+
+5.3 Custodian Responsibilities
+─────────────────────────────────────────────────────────────────────────────
+Employees under legal hold must:
+- Preserve all relevant data
+- Not delete any potentially relevant information
+- Notify IT of any issues
+- Acknowledge legal hold notice
+- Attend training if required
+
+═══════════════════════════════════════════════════════════════════════════════
+6. ROLES AND RESPONSIBILITIES
+═══════════════════════════════════════════════════════════════════════════════
+
+Legal Department:
+- Policy oversight and approval
+- Legal hold authority
+- Regulatory compliance guidance
+- Litigation support
+
+IT Department:
+- Technical implementation
+- Automated retention enforcement
+- Secure disposal execution
+- System configuration
+
+Records Management:
+- Retention schedule maintenance
+- Disposal coordination
+- Compliance monitoring
+- Training and awareness
+
+Data Owners:
+- Classification of data
+- Business need determination
+- Disposal approval
+- Exception requests
+
+All Employees:
+- Compliance with policy
+- Proper data handling
+- Legal hold adherence
+- Training completion
+
+═══════════════════════════════════════════════════════════════════════════════
+7. EXCEPTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Exception Process:
+1. Submit written request
+2. Business justification required
+3. Legal review and approval
+4. Documented in exception register
+5. Annual review required
+6. Compensating controls may be required
+
+Valid Exception Examples:
+- Ongoing litigation (legal hold supersedes retention)
+- Regulatory investigation (extended retention)
+- Business-critical historical data (with approvals)
+- Research and development data (with justification)
+
+═══════════════════════════════════════════════════════════════════════════════
+8. COMPLIANCE AND MONITORING
+═══════════════════════════════════════════════════════════════════════════════
+
+8.1 Automated Enforcement
+─────────────────────────────────────────────────────────────────────────────
+Technology Solutions:
+- Microsoft 365 Retention Policies
+- Enterprise Content Management (ECM) systems
+- Data Loss Prevention (DLP) tools
+- Archive and e-discovery platforms
+- Asset management systems
+
+8.2 Audits and Reviews
+─────────────────────────────────────────────────────────────────────────────
+Frequency:
+- Quarterly: Spot checks of disposal processes
+- Annually: Comprehensive policy compliance audit
+- As needed: Investigation of incidents
+
+Audit Scope:
+□ Retention schedule adherence
+□ Disposal documentation review
+□ Legal hold compliance
+□ System configuration verification
+□ Certificate of destruction validation
+□ Training completion rates
+
+8.3 Metrics and Reporting
+─────────────────────────────────────────────────────────────────────────────
+Key Performance Indicators:
+- Percentage of data with retention labels applied
+- Disposal certificate completion rate
+- Legal hold response time
+- Policy exception count
+- Training completion rate
+- Storage cost trends
+
+Monthly Report Includes:
+- Data volume by retention category
+- Scheduled disposals completed
+- Legal holds active
+- Exceptions granted
+- Compliance issues identified
+
+═══════════════════════════════════════════════════════════════════════════════
+9. TRAINING AND AWARENESS
+═══════════════════════════════════════════════════════════════════════════════
+
+Required Training:
+- New employee orientation: Data retention basics
+- Annual refresher: All employees
+- Legal hold training: As needed when hold issued
+- Disposal training: IT and Records Management staff
+- Data owner training: Department managers
+
+Training Topics:
+✓ Retention schedule overview
+✓ Legal and compliance requirements
+✓ Proper disposal methods
+✓ Legal hold procedures
+✓ Consequences of non-compliance
+
+═══════════════════════════════════════════════════════════════════════════════
+
+APPROVAL
+
+Chief Information Officer: _______________________
+Date: January 1, 2025
+
+General Counsel: _______________________
+Date: January 1, 2025
+
+Chief Financial Officer: _______________________
+Date: January 1, 2025
+
+Next Policy Review: January 1, 2026
+
+For questions about data retention:
+Records Management: records@acme.com
+Legal Department: legal@acme.com
+IT Support: itsupport@acme.com
+Legal Hold Questions: legalhold@acme.com
