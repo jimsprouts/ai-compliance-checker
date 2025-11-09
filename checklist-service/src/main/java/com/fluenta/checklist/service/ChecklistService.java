@@ -72,9 +72,9 @@ public class ChecklistService {
                 .max()
                 .orElse(0.0);
 
-        if (maxConfidence > 0.7) {
+        if (maxConfidence >= 0.7) {
             return ChecklistItem.ItemStatus.COMPLETED;
-        } else if (maxConfidence > 0.3) {
+        } else if (maxConfidence >= 0.3) {
             return ChecklistItem.ItemStatus.PARTIAL;
         } else {
             return ChecklistItem.ItemStatus.PENDING;

@@ -139,7 +139,22 @@ public class ReportService {
                 if (aiResponse != null) {
                     // Use AI-provided suggestions
                     if (aiResponse.getSuggestions() != null && !aiResponse.getSuggestions().isEmpty()) {
-                        recommendations = aiResponse.getSuggestions();
+                        recommendations = new ArrayList<>(aiResponse.getSuggestions());
+
+                        // Ensure we have recommendations for PARTIAL items (AI sometimes misses them)
+                        for (GapReport.Gap gap : gaps) {
+                            if ("PARTIAL".equals(gap.getStatus())) {
+                                String gapId = gap.getRequirementId();
+                                // Check if this gap already has a recommendation
+                                boolean hasRecommendation = recommendations.stream()
+                                    .anyMatch(rec -> rec.contains(gapId) || rec.toLowerCase().contains(gap.getRequirement().toLowerCase()));
+
+                                if (!hasRecommendation) {
+                                    recommendations.add(String.format("Complete documentation for %s (%s) - currently partially covered",
+                                        gap.getRequirement(), gapId));
+                                }
+                            }
+                        }
                     } else {
                         // Fallback to generic recommendations
                         recommendations.add("Upload evidence documents for pending requirements");
